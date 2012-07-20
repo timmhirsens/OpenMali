@@ -43,50 +43,44 @@ import org.openmali.vecmath2.Vector3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Ray3fPool extends ObjectPool< Ray3f >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Ray3f newInstance()
-    {
-        return ( new Ray3f() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Ray3f alloc()
-    {
-        Ray3f o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Ray3f alloc( float ox, float oy, float oz, float dx, float dy, float dz )
-    {
-        Ray3f o = super.alloc();
-        
-        o.set( ox, oy, oz, dx, dy, dz );
-        
-        return ( o );
-    }
-    
-    public Ray3f alloc( Tuple3f origin, Vector3f direction )
-    {
-        Ray3f o = super.alloc();
-        
-        o.set( origin, direction );
-        
-        return ( o );
-    }
-    
-    public Ray3fPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Ray3fPool extends ObjectPool<Ray3f> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Ray3f newInstance() {
+		return (new Ray3f());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Ray3f alloc() {
+		Ray3f o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Ray3f alloc(float ox, float oy, float oz, float dx, float dy, float dz) {
+		Ray3f o = super.alloc();
+
+		o.set(ox, oy, oz, dx, dy, dz);
+
+		return (o);
+	}
+
+	public Ray3f alloc(Tuple3f origin, Vector3f direction) {
+		Ray3f o = super.alloc();
+
+		o.set(origin, direction);
+
+		return (o);
+	}
+
+	public Ray3fPool(int initialSize) {
+		super(initialSize);
+	}
 }

@@ -40,27 +40,20 @@ import org.openmali.vecmath2.Vector3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public enum PlaneIndicator
-{
-    X_Y_PLANE( AxisIndicator.POSITIVE_Z_AXIS ),
-    X_Z_PLANE( AxisIndicator.POSITIVE_Y_AXIS ),
-    Z_Y_PLANE( AxisIndicator.NEGATIVE_X_AXIS ),
-    ;
-    
-    private final AxisIndicator normalAxis;
-    
-    public final AxisIndicator getNormalAxis()
-    {
-        return ( normalAxis );
-    }
-    
-    public final Vector3f getNormalVector()
-    {
-        return ( normalAxis.getVector() );
-    }
-    
-    private PlaneIndicator( AxisIndicator normalAxis )
-    {
-        this.normalAxis = normalAxis;
-    }
+public enum PlaneIndicator {
+	X_Y_PLANE(AxisIndicator.POSITIVE_Z_AXIS), X_Z_PLANE(AxisIndicator.POSITIVE_Y_AXIS), Z_Y_PLANE(AxisIndicator.NEGATIVE_X_AXIS), ;
+
+	private final AxisIndicator normalAxis;
+
+	public final AxisIndicator getNormalAxis() {
+		return (normalAxis);
+	}
+
+	public final Vector3f getNormalVector() {
+		return (normalAxis.getVector());
+	}
+
+	private PlaneIndicator(AxisIndicator normalAxis) {
+		this.normalAxis = normalAxis;
+	}
 }

@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Vector2d;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Vector2dPool extends ObjectPool< Vector2d >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Vector2d newInstance()
-    {
-        return ( new Vector2d() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Vector2d alloc()
-    {
-        Vector2d o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Vector2d alloc( double x, double y )
-    {
-        Vector2d o = super.alloc();
-        
-        o.set( x, y );
-        
-        return ( o );
-    }
-    
-    public Vector2dPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Vector2dPool extends ObjectPool<Vector2d> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Vector2d newInstance() {
+		return (new Vector2d());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Vector2d alloc() {
+		Vector2d o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Vector2d alloc(double x, double y) {
+		Vector2d o = super.alloc();
+
+		o.set(x, y);
+
+		return (o);
+	}
+
+	public Vector2dPool(int initialSize) {
+		super(initialSize);
+	}
 }

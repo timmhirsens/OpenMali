@@ -44,85 +44,68 @@ import org.openmali.spatial.bounds.BoundsType;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-class BoundsHelper
-{
-    public static final float getMinX( PlaneIndicator plane, Bounds bounds, BoundsType type )
-    {
-        if ( ( plane == PlaneIndicator.X_Z_PLANE ) || ( plane == PlaneIndicator.X_Y_PLANE ) )
-        {
-            if ( type == BoundsType.AABB )
-                return ( ( (BoundingBox)bounds ).getLowerX() );
-            else if ( type == BoundsType.SPHERE )
-                return ( ( (BoundingSphere)bounds ).getCenterX() - ( (BoundingSphere)bounds ).getRadius() );
-        }
-        else if ( plane == PlaneIndicator.Z_Y_PLANE )
-        {
-            if ( type == BoundsType.AABB )
-                return ( ( (BoundingBox)bounds ).getLowerZ() );
-            else if ( type == BoundsType.SPHERE )
-                return ( ( (BoundingSphere)bounds ).getCenterZ() - ( (BoundingSphere)bounds ).getRadius() );
-        }
-        
-        return ( 0f );
-    }
-    
-    public static final float getMinDepth( PlaneIndicator plane, Bounds bounds, BoundsType type )
-    {
-        if ( plane == PlaneIndicator.X_Z_PLANE )
-        {
-            if ( type == BoundsType.AABB )
-                return ( ( (BoundingBox)bounds ).getLowerZ() );
-            else if ( type == BoundsType.SPHERE )
-                return ( ( (BoundingSphere)bounds ).getCenterZ() - ( (BoundingSphere)bounds ).getRadius() );
-        }
-        else if ( ( plane == PlaneIndicator.X_Y_PLANE ) || ( plane == PlaneIndicator.Z_Y_PLANE ) )
-        {
-            if ( type == BoundsType.AABB )
-                return ( ( (BoundingBox)bounds ).getLowerY() );
-            else if ( type == BoundsType.SPHERE )
-                return ( ( (BoundingSphere)bounds ).getCenterY() - ( (BoundingSphere)bounds ).getRadius() );
-        }
-        
-        return ( 0f );
-    }
-    
-    public static final float getMaxX( PlaneIndicator plane, Bounds bounds, BoundsType type )
-    {
-        if ( ( plane == PlaneIndicator.X_Z_PLANE ) || ( plane == PlaneIndicator.X_Y_PLANE ) )
-        {
-            if ( type == BoundsType.AABB )
-                return ( ( (BoundingBox)bounds ).getUpperX() );
-            else if ( type == BoundsType.SPHERE )
-                return ( ( (BoundingSphere)bounds ).getCenterX() + ( (BoundingSphere)bounds ).getRadius() );
-        }
-        else if ( plane == PlaneIndicator.Z_Y_PLANE )
-        {
-            if ( type == BoundsType.AABB )
-                return ( ( (BoundingBox)bounds ).getUpperZ() );
-            else if ( type == BoundsType.SPHERE )
-                return ( ( (BoundingSphere)bounds ).getCenterZ() + ( (BoundingSphere)bounds ).getRadius() );
-        }
-        
-        return ( 0f );
-    }
-    
-    public static final float getMaxDepth( PlaneIndicator plane, Bounds bounds, BoundsType type )
-    {
-        if ( plane == PlaneIndicator.X_Z_PLANE )
-        {
-            if ( type == BoundsType.AABB )
-                return ( ( (BoundingBox)bounds ).getUpperZ() );
-            else if ( type == BoundsType.SPHERE )
-                return ( ( (BoundingSphere)bounds ).getCenterZ() + ( (BoundingSphere)bounds ).getRadius() );
-        }
-        else if ( ( plane == PlaneIndicator.X_Y_PLANE ) || ( plane == PlaneIndicator.Z_Y_PLANE ) )
-        {
-            if ( type == BoundsType.AABB )
-                return ( ( (BoundingBox)bounds ).getUpperY() );
-            else if ( type == BoundsType.SPHERE )
-                return ( ( (BoundingSphere)bounds ).getCenterY() + ( (BoundingSphere)bounds ).getRadius() );
-        }
-        
-        return ( 0f );
-    }
+class BoundsHelper {
+	public static final float getMinX(PlaneIndicator plane, Bounds bounds, BoundsType type) {
+		if ((plane == PlaneIndicator.X_Z_PLANE) || (plane == PlaneIndicator.X_Y_PLANE)) {
+			if (type == BoundsType.AABB)
+				return (((BoundingBox) bounds).getLowerX());
+			else if (type == BoundsType.SPHERE)
+				return (((BoundingSphere) bounds).getCenterX() - ((BoundingSphere) bounds).getRadius());
+		} else if (plane == PlaneIndicator.Z_Y_PLANE) {
+			if (type == BoundsType.AABB)
+				return (((BoundingBox) bounds).getLowerZ());
+			else if (type == BoundsType.SPHERE)
+				return (((BoundingSphere) bounds).getCenterZ() - ((BoundingSphere) bounds).getRadius());
+		}
+
+		return (0f);
+	}
+
+	public static final float getMinDepth(PlaneIndicator plane, Bounds bounds, BoundsType type) {
+		if (plane == PlaneIndicator.X_Z_PLANE) {
+			if (type == BoundsType.AABB)
+				return (((BoundingBox) bounds).getLowerZ());
+			else if (type == BoundsType.SPHERE)
+				return (((BoundingSphere) bounds).getCenterZ() - ((BoundingSphere) bounds).getRadius());
+		} else if ((plane == PlaneIndicator.X_Y_PLANE) || (plane == PlaneIndicator.Z_Y_PLANE)) {
+			if (type == BoundsType.AABB)
+				return (((BoundingBox) bounds).getLowerY());
+			else if (type == BoundsType.SPHERE)
+				return (((BoundingSphere) bounds).getCenterY() - ((BoundingSphere) bounds).getRadius());
+		}
+
+		return (0f);
+	}
+
+	public static final float getMaxX(PlaneIndicator plane, Bounds bounds, BoundsType type) {
+		if ((plane == PlaneIndicator.X_Z_PLANE) || (plane == PlaneIndicator.X_Y_PLANE)) {
+			if (type == BoundsType.AABB)
+				return (((BoundingBox) bounds).getUpperX());
+			else if (type == BoundsType.SPHERE)
+				return (((BoundingSphere) bounds).getCenterX() + ((BoundingSphere) bounds).getRadius());
+		} else if (plane == PlaneIndicator.Z_Y_PLANE) {
+			if (type == BoundsType.AABB)
+				return (((BoundingBox) bounds).getUpperZ());
+			else if (type == BoundsType.SPHERE)
+				return (((BoundingSphere) bounds).getCenterZ() + ((BoundingSphere) bounds).getRadius());
+		}
+
+		return (0f);
+	}
+
+	public static final float getMaxDepth(PlaneIndicator plane, Bounds bounds, BoundsType type) {
+		if (plane == PlaneIndicator.X_Z_PLANE) {
+			if (type == BoundsType.AABB)
+				return (((BoundingBox) bounds).getUpperZ());
+			else if (type == BoundsType.SPHERE)
+				return (((BoundingSphere) bounds).getCenterZ() + ((BoundingSphere) bounds).getRadius());
+		} else if ((plane == PlaneIndicator.X_Y_PLANE) || (plane == PlaneIndicator.Z_Y_PLANE)) {
+			if (type == BoundsType.AABB)
+				return (((BoundingBox) bounds).getUpperY());
+			else if (type == BoundsType.SPHERE)
+				return (((BoundingSphere) bounds).getCenterY() + ((BoundingSphere) bounds).getRadius());
+		}
+
+		return (0f);
+	}
 }

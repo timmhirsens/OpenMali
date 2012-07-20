@@ -35,34 +35,32 @@ package org.openmali.test.number;
 
 /**
  */
-public class PackageTests
-{
-    public static void main( String[] args )
-    {
-        TestMatrix4rad tm = new TestMatrix4rad();
-        
-        tm.testDet();
-        tm.testInv();
-        tm.testParse();
-        
-        TestRadical1 tr1 = new TestRadical1();
-        
-        tr1.testAdd();
-        tr1.testBounds();
-        tr1.testEquals();
-        tr1.testHashCode();
-        tr1.testMod();
-        tr1.testMul();
-        tr1.testMulZero();
-        tr1.testParse();
-        tr1.testSub();
-        
-        TestRational tr = new TestRational();
-        
-        tr.testAdd();
-        tr.testEquals();
-        tr.testMul();
-        tr.testParse();
-        tr.testSub();
-    }
+public class PackageTests {
+	public static void main(String[] args) {
+		TestMatrix4rad tm = new TestMatrix4rad();
+
+		tm.testDet();
+		tm.testInv();
+		tm.testParse();
+
+		TestRadical1 tr1 = new TestRadical1();
+
+		tr1.testAdd();
+		tr1.testBounds();
+		tr1.testEquals();
+		tr1.testHashCode();
+		tr1.testMod();
+		tr1.testMul();
+		tr1.testMulZero();
+		tr1.testParse();
+		tr1.testSub();
+
+		TestRational tr = new TestRational();
+
+		tr.testAdd();
+		tr.testEquals();
+		tr.testMul();
+		tr.testParse();
+		tr.testSub();
+	}
 }

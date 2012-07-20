@@ -43,51 +43,41 @@ import org.openmali.vecmath2.Tuple3f;
  * @author Amos Wenger (aka BlueSky)
  */
 public abstract class Distance2D {
-	
+
 	/**
 	 * @return The distance between the two points
 	 */
 	public static float dist(float t1x, float t1y, float t2x, float t2y) {
-		
-		return FastMath.sqrt(
-		(t1x - t2x) * (t1x - t2x)
-		+ (t1y - t2y) * (t1y - t2y)
-		);
-		
+
+		return FastMath.sqrt((t1x - t2x) * (t1x - t2x) + (t1y - t2y) * (t1y - t2y));
+
 	}
-	
+
 	/**
 	 * @return The distance between the two points
 	 */
 	public static float dist(Tuple2f t1, Tuple2f t2) {
-		
-		return FastMath.sqrt(
-		(t1.getX() - t2.getX()) * (t1.getX() - t2.getX())
-		+ (t1.getY() - t2.getY()) * (t1.getY() - t2.getY())
-		);
-		
+
+		return FastMath.sqrt((t1.getX() - t2.getX()) * (t1.getX() - t2.getX()) + (t1.getY() - t2.getY()) * (t1.getY() - t2.getY()));
+
 	}
-	
+
 	/**
 	 * @return The distance between the two points
 	 */
 	public static float dist(Tuple3f p1, Tuple3f p2) {
 
-		return FastMath.sqrt(
-				(p1.getX() - p2.getX()) * (p1.getX() - p2.getX())
-				+ (p1.getY() - p2.getY()) * (p1.getY() - p2.getY())
-				);
-		
+		return FastMath.sqrt((p1.getX() - p2.getX()) * (p1.getX() - p2.getX()) + (p1.getY() - p2.getY()) * (p1.getY() - p2.getY()));
+
 	}
 
 	/**
 	 * @return The squared distance between the two points
 	 */
 	public static float squaredDist(Tuple2f t1, Tuple2f t2) {
-		
-		return 	(t1.getX() - t2.getX()) * (t1.getX() - t2.getX())
-				+ (t1.getY() - t2.getY()) * (t1.getY() - t2.getY());
-		
+
+		return (t1.getX() - t2.getX()) * (t1.getX() - t2.getX()) + (t1.getY() - t2.getY()) * (t1.getY() - t2.getY());
+
 	}
 
 }

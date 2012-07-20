@@ -40,41 +40,34 @@ import org.openmali.number.Radical1;
  * 
  * @author Tom Larkworthy
  */
-public class Matrix3rad extends MatrixMxNrad
-{
-    private static final long serialVersionUID = 6268216302645871922L;
-    
-    public static final Matrix3rad IDENTITY = new Matrix3rad( true );
-    
-    public final void setColumn( int col, Radical1 a, Radical1 b, Radical1 c )
-    {
-        set( 0, col, a );
-        set( 1, col, b );
-        set( 2, col, c );
-    }
-    
-    protected Matrix3rad( boolean readOnly )
-    {
-        super( readOnly, 3, 3 );
-    }
-    
-    protected Matrix3rad( boolean readOnly, Matrix3rad value )
-    {
-        super( readOnly, value );
-    }
-    
-    public Matrix3rad()
-    {
-        this( false );
-    }
-    
-    public Matrix3rad( Matrix3rad value )
-    {
-        this( false, value );
-    }
-    
-    public static final Matrix3rad newReadOnly( Matrix3rad value )
-    {
-        return ( new Matrix3rad( true, value ) );
-    }
+public class Matrix3rad extends MatrixMxNrad {
+	private static final long serialVersionUID = 6268216302645871922L;
+
+	public static final Matrix3rad IDENTITY = new Matrix3rad(true);
+
+	public final void setColumn(int col, Radical1 a, Radical1 b, Radical1 c) {
+		set(0, col, a);
+		set(1, col, b);
+		set(2, col, c);
+	}
+
+	protected Matrix3rad(boolean readOnly) {
+		super(readOnly, 3, 3);
+	}
+
+	protected Matrix3rad(boolean readOnly, Matrix3rad value) {
+		super(readOnly, value);
+	}
+
+	public Matrix3rad() {
+		this(false);
+	}
+
+	public Matrix3rad(Matrix3rad value) {
+		this(false, value);
+	}
+
+	public static final Matrix3rad newReadOnly(Matrix3rad value) {
+		return (new Matrix3rad(true, value));
+	}
 }

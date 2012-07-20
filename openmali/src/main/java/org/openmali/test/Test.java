@@ -36,27 +36,25 @@ package org.openmali.test;
 public class Test {
 
 	public static void passed(int i) {
-		
+
 		lines();
-		System.out.println("TEST "+i+" PASSED !");
+		System.out.println("TEST " + i + " PASSED !");
 		lines();
-		
+
 	}
 
 	private static void lines() {
-		
+
 		System.out.println("--------------------------------");
-		
+
 	}
 
 	public static void failed(int i) {
-		
+
 		lines();
-		System.err.println("TEST "+i+" FAILED !");
+		System.err.println("TEST " + i + " FAILED !");
 		lines();
-		
+
 	}
 
-	
-	
 }

@@ -40,20 +40,19 @@ import org.openmali.types.twodee.util.RepositionListener2f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface ExtPositioned2f extends Positioned2f
-{
-    /**
-     * Adds a new RepositionListener2f. The event is fired from the rendering
-     * thread, if necessary.
-     * 
-     * @param listener
-     */
-    public void addRepositionListener( RepositionListener2f listener );
-    
-    /**
-     * Removes the given RepositionListener2f from the List, if it was present.
-     * 
-     * @param listener
-     */
-    public void removeRepositionListener( RepositionListener2f listener );
+public interface ExtPositioned2f extends Positioned2f {
+	/**
+	 * Adds a new RepositionListener2f. The event is fired from the rendering
+	 * thread, if necessary.
+	 * 
+	 * @param listener
+	 */
+	public void addRepositionListener(RepositionListener2f listener);
+
+	/**
+	 * Removes the given RepositionListener2f from the List, if it was present.
+	 * 
+	 * @param listener
+	 */
+	public void removeRepositionListener(RepositionListener2f listener);
 }

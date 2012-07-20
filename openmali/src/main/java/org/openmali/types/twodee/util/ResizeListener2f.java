@@ -41,16 +41,15 @@ import org.openmali.types.twodee.Sized2f;
  * 
  * @author Kevin Finley (aka Horati)
  */
-public interface ResizeListener2f
-{
-    /**
-     * This event is fired when a Sized2f object was recently resized.
-     * 
-     * @param object the object that was just resized
-     * @param oldWidth the width of the object before it was resized
-     * @param oldHeight the height of the object before it was resized
-     * @param newWidth the width of the object now
-     * @param newHeight the height of the object now
-     */
-    public void onObjectResized( Sized2f object, float oldWidth, float oldHeight, float newWidth, float newHeight);
+public interface ResizeListener2f {
+	/**
+	 * This event is fired when a Sized2f object was recently resized.
+	 * 
+	 * @param object the object that was just resized
+	 * @param oldWidth the width of the object before it was resized
+	 * @param oldHeight the height of the object before it was resized
+	 * @param newWidth the width of the object now
+	 * @param newHeight the height of the object now
+	 */
+	public void onObjectResized(Sized2f object, float oldWidth, float oldHeight, float newWidth, float newHeight);
 }

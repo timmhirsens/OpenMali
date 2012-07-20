@@ -39,25 +39,24 @@ package org.openmali.vecmath2;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface PointInterface< T extends TupleNf< T >, P extends TupleNf< ? > > extends TupleInterface< T >
-{
-    /**
-     * @return the squared distance betweeen this point and the other one
-     */
-    public float distanceSquared( P that );
-    
-    /**
-     * @return the distance betweeen this point and the other one
-     */
-    public float distance( P that );
-    
-    /**
-     * @return the squared distance betweeen this point and the origin
-     */
-    public float distanceToOriginSquared();
-    
-    /**
-     * @return the distance betweeen this point and the origin
-     */
-    public float distanceToOrigin();
+public interface PointInterface<T extends TupleNf<T>, P extends TupleNf<?>> extends TupleInterface<T> {
+	/**
+	 * @return the squared distance betweeen this point and the other one
+	 */
+	public float distanceSquared(P that);
+
+	/**
+	 * @return the distance betweeen this point and the other one
+	 */
+	public float distance(P that);
+
+	/**
+	 * @return the squared distance betweeen this point and the origin
+	 */
+	public float distanceToOriginSquared();
+
+	/**
+	 * @return the distance betweeen this point and the origin
+	 */
+	public float distanceToOrigin();
 }

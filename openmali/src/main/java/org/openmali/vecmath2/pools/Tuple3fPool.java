@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Tuple3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Tuple3fPool extends ObjectPool< Tuple3f >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Tuple3f newInstance()
-    {
-        return ( new Tuple3f() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Tuple3f alloc()
-    {
-        Tuple3f o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Tuple3f alloc( float x, float y, float z )
-    {
-        Tuple3f o = super.alloc();
-        
-        o.set( x, y, z );
-        
-        return ( o );
-    }
-    
-    public Tuple3fPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Tuple3fPool extends ObjectPool<Tuple3f> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Tuple3f newInstance() {
+		return (new Tuple3f());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Tuple3f alloc() {
+		Tuple3f o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Tuple3f alloc(float x, float y, float z) {
+		Tuple3f o = super.alloc();
+
+		o.set(x, y, z);
+
+		return (o);
+	}
+
+	public Tuple3fPool(int initialSize) {
+		super(initialSize);
+	}
 }

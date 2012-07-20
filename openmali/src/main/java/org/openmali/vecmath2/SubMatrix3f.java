@@ -40,170 +40,155 @@ package org.openmali.vecmath2;
  * @author Marvin Froehlich (aka Qudus)
  * @author Arne Mueller
  */
-class SubMatrix3f extends Matrix3f
-{
-    private static final long serialVersionUID = 7372605249739675868L;
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public java.nio.FloatBuffer writeToBuffer( java.nio.FloatBuffer buffer, boolean clear, boolean flip )
-    {
-        if ( clear )
-            buffer.clear();
-        
-        buffer.put( m00() );
-        buffer.put( m10() );
-        buffer.put( m20() );
-        
-        buffer.put( m01() );
-        buffer.put( m11() );
-        buffer.put( m21() );
-        
-        buffer.put( m02() );
-        buffer.put( m12() );
-        buffer.put( m22() );
-        
-        if ( flip )
-            buffer.flip();
-        
-        return ( buffer );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public java.nio.FloatBuffer writeToBuffer( java.nio.FloatBuffer buffer, int position, boolean clear, boolean flip )
-    {
-        if ( clear )
-            buffer.clear();
-        
-        buffer.position( position );
-        
-        buffer.put( m00() );
-        buffer.put( m10() );
-        buffer.put( m20() );
-        
-        buffer.put( m01() );
-        buffer.put( m11() );
-        buffer.put( m21() );
-        
-        buffer.put( m02() );
-        buffer.put( m12() );
-        buffer.put( m22() );
-        
-        if ( flip )
-            buffer.flip();
-        
-        return ( buffer );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public java.nio.FloatBuffer readFromBuffer( java.nio.FloatBuffer buffer )
-    {
-        m00( buffer.get() );
-        m10( buffer.get() );
-        m20( buffer.get() );
-        
-        m01( buffer.get() );
-        m11( buffer.get() );
-        m21( buffer.get() );
-        
-        m02( buffer.get() );
-        m12( buffer.get() );
-        m22( buffer.get() );
-        
-        return ( buffer );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public java.nio.FloatBuffer readFromBuffer( java.nio.FloatBuffer buffer, int position )
-    {
-        buffer.position( position );
-        
-        m00( buffer.get() );
-        m10( buffer.get() );
-        m20( buffer.get() );
-        
-        m01( buffer.get() );
-        m11( buffer.get() );
-        m21( buffer.get() );
-        
-        m02( buffer.get() );
-        m12( buffer.get() );
-        m22( buffer.get() );
-        
-        return ( buffer );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public SubMatrix3f mul( float scalar )
-    {
-        for ( int r = 0; r < getNumRows(); r++ )
-        {
-            for ( int c = 0; c < getNumCols(); c++ )
-            {
-                values[ roTrick + dataBegin + r * colSkip + c ] *= scalar;
-            }
-        }
-        
-        this.isDirty[ 0 ] = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public SubMatrix3f invert()
-    {
-        float d = determinant();
-        if ( d == 0.0f )
-            return ( this );
-        d = 1.0f / d;
-        
-        // alias-safe way.
-        set( m11() * m22() - m12() * m21(), m02() * m21() - m01() * m22(), m01() * m12() - m02() * m11(),
-             m12() * m20() - m10() * m22(), m00() * m22() - m02() * m20(), m02() * m10() - m00() * m12(),
-             m10() * m21() - m11() * m20(), m01() * m20() - m00() * m21(), m00() * m11() - m01() * m10()
-           );
-        
-        mul( d );
-        
-        return ( this );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public void interpolate( Matrix3f m1, Matrix3f m2, float alpha )
-    {
-        for ( int r = 0; r < getNumRows(); r++ )
-        {
-            for ( int c = 0; c < getNumCols(); c++ )
-            {
-                this.set( r, c, m1.get( r, c ) + ( ( m2.get( r, c ) - m1.get( r, c ) ) * alpha ) );
-            }
-        }
-        
-        this.isDirty[ 0 ] = true;
-    }
-    
-    public SubMatrix3f( boolean readOnly, int dataBegin, int colSkip, float[] values )
-    {
-        super( readOnly, dataBegin, colSkip, values, null );
-    }
+class SubMatrix3f extends Matrix3f {
+	private static final long serialVersionUID = 7372605249739675868L;
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public java.nio.FloatBuffer writeToBuffer(java.nio.FloatBuffer buffer, boolean clear, boolean flip) {
+		if (clear)
+			buffer.clear();
+
+		buffer.put(m00());
+		buffer.put(m10());
+		buffer.put(m20());
+
+		buffer.put(m01());
+		buffer.put(m11());
+		buffer.put(m21());
+
+		buffer.put(m02());
+		buffer.put(m12());
+		buffer.put(m22());
+
+		if (flip)
+			buffer.flip();
+
+		return (buffer);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public java.nio.FloatBuffer writeToBuffer(java.nio.FloatBuffer buffer, int position, boolean clear, boolean flip) {
+		if (clear)
+			buffer.clear();
+
+		buffer.position(position);
+
+		buffer.put(m00());
+		buffer.put(m10());
+		buffer.put(m20());
+
+		buffer.put(m01());
+		buffer.put(m11());
+		buffer.put(m21());
+
+		buffer.put(m02());
+		buffer.put(m12());
+		buffer.put(m22());
+
+		if (flip)
+			buffer.flip();
+
+		return (buffer);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public java.nio.FloatBuffer readFromBuffer(java.nio.FloatBuffer buffer) {
+		m00(buffer.get());
+		m10(buffer.get());
+		m20(buffer.get());
+
+		m01(buffer.get());
+		m11(buffer.get());
+		m21(buffer.get());
+
+		m02(buffer.get());
+		m12(buffer.get());
+		m22(buffer.get());
+
+		return (buffer);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public java.nio.FloatBuffer readFromBuffer(java.nio.FloatBuffer buffer, int position) {
+		buffer.position(position);
+
+		m00(buffer.get());
+		m10(buffer.get());
+		m20(buffer.get());
+
+		m01(buffer.get());
+		m11(buffer.get());
+		m21(buffer.get());
+
+		m02(buffer.get());
+		m12(buffer.get());
+		m22(buffer.get());
+
+		return (buffer);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public SubMatrix3f mul(float scalar) {
+		for (int r = 0; r < getNumRows(); r++) {
+			for (int c = 0; c < getNumCols(); c++) {
+				values[roTrick + dataBegin + r * colSkip + c] *= scalar;
+			}
+		}
+
+		this.isDirty[0] = true;
+
+		return (this);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public SubMatrix3f invert() {
+		float d = determinant();
+		if (d == 0.0f)
+			return (this);
+		d = 1.0f / d;
+
+		// alias-safe way.
+		set(m11() * m22() - m12() * m21(), m02() * m21() - m01() * m22(), m01() * m12() - m02() * m11(), m12() * m20() - m10() * m22(), m00() * m22() - m02() * m20(), m02() * m10() - m00() * m12(),
+				m10() * m21() - m11() * m20(), m01() * m20() - m00() * m21(), m00() * m11() - m01() * m10());
+
+		mul(d);
+
+		return (this);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void interpolate(Matrix3f m1, Matrix3f m2, float alpha) {
+		for (int r = 0; r < getNumRows(); r++) {
+			for (int c = 0; c < getNumCols(); c++) {
+				this.set(r, c, m1.get(r, c) + ((m2.get(r, c) - m1.get(r, c)) * alpha));
+			}
+		}
+
+		this.isDirty[0] = true;
+	}
+
+	public SubMatrix3f(boolean readOnly, int dataBegin, int colSkip, float[] values) {
+		super(readOnly, dataBegin, colSkip, values, null);
+	}
 }

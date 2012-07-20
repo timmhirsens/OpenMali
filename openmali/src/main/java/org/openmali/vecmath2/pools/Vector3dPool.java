@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Vector3d;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Vector3dPool extends ObjectPool< Vector3d >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Vector3d newInstance()
-    {
-        return ( new Vector3d() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Vector3d alloc()
-    {
-        Vector3d o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Vector3d alloc( double x, double y, double z )
-    {
-        Vector3d o = super.alloc();
-        
-        o.set( x, y, z );
-        
-        return ( o );
-    }
-    
-    public Vector3dPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Vector3dPool extends ObjectPool<Vector3d> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Vector3d newInstance() {
+		return (new Vector3d());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Vector3d alloc() {
+		Vector3d o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Vector3d alloc(double x, double y, double z) {
+		Vector3d o = super.alloc();
+
+		o.set(x, y, z);
+
+		return (o);
+	}
+
+	public Vector3dPool(int initialSize) {
+		super(initialSize);
+	}
 }

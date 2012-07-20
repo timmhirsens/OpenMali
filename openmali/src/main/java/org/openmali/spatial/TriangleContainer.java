@@ -40,21 +40,20 @@ import org.openmali.spatial.polygons.Triangle;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface TriangleContainer
-{
-    /**
-     * @return the number of triangles in this object.
-     */
-    public int getTriangleCount();
-    
-    /**
-     * This allows the spatial container to have access to all the triangles
-     * in the object. This allows for the computation of bounding boxes which
-     * completely enclose geometry. The triangles need to be returned in
-     * world coordinates, not local coordinates.
-     *
-     * @param i
-     * @param triangle
-     */
-    public boolean getTriangle( int i, Triangle triangle );
+public interface TriangleContainer {
+	/**
+	 * @return the number of triangles in this object.
+	 */
+	public int getTriangleCount();
+
+	/**
+	 * This allows the spatial container to have access to all the triangles
+	 * in the object. This allows for the computation of bounding boxes which
+	 * completely enclose geometry. The triangles need to be returned in
+	 * world coordinates, not local coordinates.
+	 *
+	 * @param i
+	 * @param triangle
+	 */
+	public boolean getTriangle(int i, Triangle triangle);
 }

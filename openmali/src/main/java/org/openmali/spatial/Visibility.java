@@ -37,9 +37,6 @@ package org.openmali.spatial;
  * @author David Yazel
  * @author Marvin Froehlich (aka Qudus) [code cleaning]
  */
-public enum Visibility
-{
-    NOT_VISIBLE,
-    PARTIALLY_VISIBLE,
-    FULLY_VISIBLE;
+public enum Visibility {
+	NOT_VISIBLE, PARTIALLY_VISIBLE, FULLY_VISIBLE;
 }

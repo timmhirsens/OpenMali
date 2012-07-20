@@ -39,7 +39,6 @@ package org.openmali.spatial;
  * @author David Yazel
  * @author Marvin Froehlich (aka Qudus) [code cleaning]
  */
-public interface SpatialCallback< T >
-{
-    void hit( SpatialHandle< T > handle );
+public interface SpatialCallback<T> {
+	void hit(SpatialHandle<T> handle);
 }

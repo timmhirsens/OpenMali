@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Tuple2d;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Tuple2dPool extends ObjectPool< Tuple2d >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Tuple2d newInstance()
-    {
-        return ( new Tuple2d() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Tuple2d alloc()
-    {
-        Tuple2d o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Tuple2d alloc( double x, double y )
-    {
-        Tuple2d o = super.alloc();
-        
-        o.set( x, y );
-        
-        return ( o );
-    }
-    
-    public Tuple2dPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Tuple2dPool extends ObjectPool<Tuple2d> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Tuple2d newInstance() {
+		return (new Tuple2d());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Tuple2d alloc() {
+		Tuple2d o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Tuple2d alloc(double x, double y) {
+		Tuple2d o = super.alloc();
+
+		o.set(x, y);
+
+		return (o);
+	}
+
+	public Tuple2dPool(int initialSize) {
+		super(initialSize);
+	}
 }

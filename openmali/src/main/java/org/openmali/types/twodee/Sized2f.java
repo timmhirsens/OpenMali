@@ -40,47 +40,46 @@ import org.openmali.vecmath2.Tuple2f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface Sized2f extends Sized2fRO
-{
-    /**
-     * Sets the size.
-     * 
-     * @param width
-     * @param height
-     * 
-     * @return this instance back again.
-     */
-    public Sized2f setSize( float width, float height );
-    
-    /**
-     * Sets the size.
-     * 
-     * @param size
-     * 
-     * @return this instance back again.
-     */
-    public Sized2f setSize( Sized2fRO size );
-    
-    /**
-     * Sets the size.
-     * 
-     * @param size
-     * 
-     * @return this instance back again.
-     */
-    public Sized2f setSize( Tuple2f size );
-    
-    /**
-     * Sets the width.
-     * 
-     * @param width
-     */
-    public void setWidth( float width );
-    
-    /**
-     * Sets the height.
-     * 
-     * @param height
-     */
-    public void setHeight( float height );
+public interface Sized2f extends Sized2fRO {
+	/**
+	 * Sets the size.
+	 * 
+	 * @param width
+	 * @param height
+	 * 
+	 * @return this instance back again.
+	 */
+	public Sized2f setSize(float width, float height);
+
+	/**
+	 * Sets the size.
+	 * 
+	 * @param size
+	 * 
+	 * @return this instance back again.
+	 */
+	public Sized2f setSize(Sized2fRO size);
+
+	/**
+	 * Sets the size.
+	 * 
+	 * @param size
+	 * 
+	 * @return this instance back again.
+	 */
+	public Sized2f setSize(Tuple2f size);
+
+	/**
+	 * Sets the width.
+	 * 
+	 * @param width
+	 */
+	public void setWidth(float width);
+
+	/**
+	 * Sets the height.
+	 * 
+	 * @param height
+	 */
+	public void setHeight(float height);
 }

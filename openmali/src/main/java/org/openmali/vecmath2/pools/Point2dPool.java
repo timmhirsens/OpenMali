@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Point2d;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Point2dPool extends ObjectPool< Point2d >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Point2d newInstance()
-    {
-        return ( new Point2d() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Point2d alloc()
-    {
-        Point2d o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Point2d alloc( double x, double y )
-    {
-        Point2d o = super.alloc();
-        
-        o.set( x, y );
-        
-        return ( o );
-    }
-    
-    public Point2dPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Point2dPool extends ObjectPool<Point2d> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Point2d newInstance() {
+		return (new Point2d());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Point2d alloc() {
+		Point2d o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Point2d alloc(double x, double y) {
+		Point2d o = super.alloc();
+
+		o.set(x, y);
+
+		return (o);
+	}
+
+	public Point2dPool(int initialSize) {
+		super(initialSize);
+	}
 }

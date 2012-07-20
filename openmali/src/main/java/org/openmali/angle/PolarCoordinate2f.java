@@ -41,89 +41,81 @@ import org.openmali.vecmath2.Vector2f;
  * 
  * @author David Yazel
  */
-public class PolarCoordinate2f
-{
-    /** Radius */
-    private float radius;
-    
-    /** Angle */
-    private float angle;
-    
-    /**
-     * @return the radius
-     */
-    public float getRadius()
-    {
-        return ( radius );
-    }
-    
-    /**
-     * @return the angle
-     */
-    public float getAngle()
-    {
-        return ( angle );
-    }
-    
-    /**
-     * Set the polar coordinates.
-     * 
-     * @param radius The new radius
-     * @param angle The new angle, in degrees
-     */
-    public void set( float radius, float angle )
-    {
-        this.radius = radius;
-        this.angle = angle;
-    }
-    
-    /**
-     * Sets the polar coordinates from another polar coordinate.
-     * 
-     * @param src The source polar coordinate
-     */
-    public void set( PolarCoordinate2f src )
-    {
-        this.radius = src.radius;
-        this.angle = src.angle;
-    }
-    
-    /**
-     * Adds this polar coordinate to the specified vector2f
-     * 
-     * @param vec The vector to modify
-     * @return vec
-     */
-    public Vector2f add( Vector2f vec )
-    {
-        vec.addX( FastMath.cos( FastMath.toRad( angle ) ) * radius );
-        vec.addY( FastMath.cos( FastMath.toRad( angle + 90.0f ) ) * radius );
-        vec.subX( FastMath.sin( FastMath.toRad( angle ) ) * radius );
-        vec.subY( FastMath.sin( FastMath.toRad( angle + 90.0f ) ) * radius );
-        
-        return ( vec );
-    }
-    
-    /**
-     * Adds this polar coordinate to the specified vector2f and place
-     * the result in a destination vector2f
-     * 
-     * @param src The source vector to modify
-     * @param dest The destination result
-     */
-    public void add( Vector2f src, Vector2f dest )
-    {
-        dest.setX( FastMath.cos( FastMath.toRad( angle ) ) * radius );
-        dest.setY( FastMath.cos( FastMath.toRad( angle + 90.0f ) ) * radius );
-        dest.subX( FastMath.sin( FastMath.toRad( angle ) ) * radius );
-        dest.subY( FastMath.sin( FastMath.toRad( angle + 90.0f ) ) * radius );
-    }
-    
-    /**
-     * Constructor for PolarCoordinate2f.
-     */
-    public PolarCoordinate2f()
-    {
-        super();
-    }
+public class PolarCoordinate2f {
+	/** Radius */
+	private float radius;
+
+	/** Angle */
+	private float angle;
+
+	/**
+	 * @return the radius
+	 */
+	public float getRadius() {
+		return (radius);
+	}
+
+	/**
+	 * @return the angle
+	 */
+	public float getAngle() {
+		return (angle);
+	}
+
+	/**
+	 * Set the polar coordinates.
+	 * 
+	 * @param radius The new radius
+	 * @param angle The new angle, in degrees
+	 */
+	public void set(float radius, float angle) {
+		this.radius = radius;
+		this.angle = angle;
+	}
+
+	/**
+	 * Sets the polar coordinates from another polar coordinate.
+	 * 
+	 * @param src The source polar coordinate
+	 */
+	public void set(PolarCoordinate2f src) {
+		this.radius = src.radius;
+		this.angle = src.angle;
+	}
+
+	/**
+	 * Adds this polar coordinate to the specified vector2f
+	 * 
+	 * @param vec The vector to modify
+	 * @return vec
+	 */
+	public Vector2f add(Vector2f vec) {
+		vec.addX(FastMath.cos(FastMath.toRad(angle)) * radius);
+		vec.addY(FastMath.cos(FastMath.toRad(angle + 90.0f)) * radius);
+		vec.subX(FastMath.sin(FastMath.toRad(angle)) * radius);
+		vec.subY(FastMath.sin(FastMath.toRad(angle + 90.0f)) * radius);
+
+		return (vec);
+	}
+
+	/**
+	 * Adds this polar coordinate to the specified vector2f and place
+	 * the result in a destination vector2f
+	 * 
+	 * @param src The source vector to modify
+	 * @param dest The destination result
+	 */
+	public void add(Vector2f src, Vector2f dest) {
+		dest.setX(FastMath.cos(FastMath.toRad(angle)) * radius);
+		dest.setY(FastMath.cos(FastMath.toRad(angle + 90.0f)) * radius);
+		dest.subX(FastMath.sin(FastMath.toRad(angle)) * radius);
+		dest.subY(FastMath.sin(FastMath.toRad(angle + 90.0f)) * radius);
+	}
+
+	/**
+	 * Constructor for PolarCoordinate2f.
+	 */
+	public PolarCoordinate2f() {
+		super();
+	}
 }

@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Vector4f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Vector4fPool extends ObjectPool< Vector4f >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Vector4f newInstance()
-    {
-        return ( new Vector4f() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Vector4f alloc()
-    {
-        Vector4f o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Vector4f alloc( float x, float y, float z, float w )
-    {
-        Vector4f o = super.alloc();
-        
-        o.set( x, y, z, w );
-        
-        return ( o );
-    }
-    
-    public Vector4fPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Vector4fPool extends ObjectPool<Vector4f> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Vector4f newInstance() {
+		return (new Vector4f());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Vector4f alloc() {
+		Vector4f o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Vector4f alloc(float x, float y, float z, float w) {
+		Vector4f o = super.alloc();
+
+		o.set(x, y, z, w);
+
+		return (o);
+	}
+
+	public Vector4fPool(int initialSize) {
+		super(initialSize);
+	}
 }

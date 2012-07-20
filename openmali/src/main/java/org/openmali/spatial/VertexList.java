@@ -44,126 +44,110 @@ import org.openmali.vecmath2.Tuple3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public final class VertexList implements VertexContainer
-{
-    public enum SourceType
-    {
-        CONTAINER,
-        LIST,
-        ARRAY;
-    }
-    
-    private VertexContainer  vc   = null;
-    private List<Tuple3f>    list  = null;
-    private Tuple3f[]        array = null;
-    
-    private SourceType sourceType = null;
-    
-    public final SourceType getSourceType()
-    {
-        return ( sourceType );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public int getVertexCount()
-    {
-        switch ( getSourceType() )
-        {
-            case CONTAINER:
-                return ( vc.getVertexCount() );
-            case LIST:
-                return ( list.size() );
-            case ARRAY:
-                return ( array.length );
-        }
-        
-        return ( -1 );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public final boolean getVertex( int i, Tuple3f coord )
-    {
-        assert ( i >= 0 && i < getVertexCount() ) : "I must be >= 0 and < getVertexCount()";
-        assert ( coord != null ) : "coord must not be null";
-        
-        if ( getSourceType() == null )
-            return ( false );
-        
-        switch ( getSourceType() )
-        {
-            case CONTAINER:
-                vc.getVertex( i, coord );
-                
-                return ( true );
-                
-            case LIST:
-                coord.set( list.get( i ) );
-                
-                return ( true );
-                
-            case ARRAY:
-                coord.set( array[ i ] );
-                
-                return ( true );
-        }
-        
-        return ( false );
-    }
-    
-    public final void set( VertexContainer vc )
-    {
-        this.vc = vc;
-        this.list = null;
-        this.array = null;
-        
-        this.sourceType = SourceType.CONTAINER;
-    }
-    
-    public final void set( List<Tuple3f> list )
-    {
-        this.vc = null;
-        this.list = list;
-        this.array = null;
-        
-        this.sourceType = SourceType.LIST;
-    }
-    
-    public final void set( Tuple3f[] array )
-    {
-        this.vc = null;
-        this.list = null;
-        this.array = array;
-        
-        this.sourceType = SourceType.ARRAY;
-    }
-    
-    public VertexList()
-    {
-        super();        
-    }
-    
-    public VertexList( VertexContainer vc )
-    {
-        this();
-        
-        set( vc );
-    }
-    
-    public VertexList( List<Tuple3f> list )
-    {
-        this();
-        
-        set( list );
-    }
-    
-    public VertexList( Tuple3f[] array )
-    {
-        this();
-        
-        set( array );
-    }
+public final class VertexList implements VertexContainer {
+	public enum SourceType {
+		CONTAINER, LIST, ARRAY;
+	}
+
+	private VertexContainer vc = null;
+	private List<Tuple3f> list = null;
+	private Tuple3f[] array = null;
+
+	private SourceType sourceType = null;
+
+	public final SourceType getSourceType() {
+		return (sourceType);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public int getVertexCount() {
+		switch (getSourceType()) {
+		case CONTAINER:
+			return (vc.getVertexCount());
+		case LIST:
+			return (list.size());
+		case ARRAY:
+			return (array.length);
+		}
+
+		return (-1);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public final boolean getVertex(int i, Tuple3f coord) {
+		assert (i >= 0 && i < getVertexCount()) : "I must be >= 0 and < getVertexCount()";
+		assert (coord != null) : "coord must not be null";
+
+		if (getSourceType() == null)
+			return (false);
+
+		switch (getSourceType()) {
+		case CONTAINER:
+			vc.getVertex(i, coord);
+
+			return (true);
+
+		case LIST:
+			coord.set(list.get(i));
+
+			return (true);
+
+		case ARRAY:
+			coord.set(array[i]);
+
+			return (true);
+		}
+
+		return (false);
+	}
+
+	public final void set(VertexContainer vc) {
+		this.vc = vc;
+		this.list = null;
+		this.array = null;
+
+		this.sourceType = SourceType.CONTAINER;
+	}
+
+	public final void set(List<Tuple3f> list) {
+		this.vc = null;
+		this.list = list;
+		this.array = null;
+
+		this.sourceType = SourceType.LIST;
+	}
+
+	public final void set(Tuple3f[] array) {
+		this.vc = null;
+		this.list = null;
+		this.array = array;
+
+		this.sourceType = SourceType.ARRAY;
+	}
+
+	public VertexList() {
+		super();
+	}
+
+	public VertexList(VertexContainer vc) {
+		this();
+
+		set(vc);
+	}
+
+	public VertexList(List<Tuple3f> list) {
+		this();
+
+		set(list);
+	}
+
+	public VertexList(Tuple3f[] array) {
+		this();
+
+		set(array);
+	}
 }

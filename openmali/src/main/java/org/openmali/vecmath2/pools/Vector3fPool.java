@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Vector3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Vector3fPool extends ObjectPool< Vector3f >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Vector3f newInstance()
-    {
-        return ( new Vector3f() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Vector3f alloc()
-    {
-        Vector3f o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Vector3f alloc( float x, float y, float z )
-    {
-        Vector3f o = super.alloc();
-        
-        o.set( x, y, z );
-        
-        return ( o );
-    }
-    
-    public Vector3fPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Vector3fPool extends ObjectPool<Vector3f> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Vector3f newInstance() {
+		return (new Vector3f());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Vector3f alloc() {
+		Vector3f o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Vector3f alloc(float x, float y, float z) {
+		Vector3f o = super.alloc();
+
+		o.set(x, y, z);
+
+		return (o);
+	}
+
+	public Vector3fPool(int initialSize) {
+		super(initialSize);
+	}
 }

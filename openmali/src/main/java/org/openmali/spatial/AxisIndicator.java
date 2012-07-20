@@ -40,25 +40,17 @@ import org.openmali.vecmath2.Vector3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public enum AxisIndicator
-{
-    POSITIVE_X_AXIS( Vector3f.POSITIVE_X_AXIS ),
-    NEGATIVE_X_AXIS( Vector3f.NEGATIVE_X_AXIS ),
-    POSITIVE_Y_AXIS( Vector3f.POSITIVE_Y_AXIS ),
-    NEGATIVE_Y_AXIS( Vector3f.NEGATIVE_Y_AXIS ),
-    POSITIVE_Z_AXIS( Vector3f.POSITIVE_Z_AXIS ),
-    NEGATIVE_Z_AXIS( Vector3f.NEGATIVE_Z_AXIS ),
-    ;
-    
-    private final Vector3f vector;
-    
-    public final Vector3f getVector()
-    {
-        return ( vector );
-    }
-    
-    private AxisIndicator( Vector3f vector )
-    {
-        this.vector = vector;
-    }
+public enum AxisIndicator {
+	POSITIVE_X_AXIS(Vector3f.POSITIVE_X_AXIS), NEGATIVE_X_AXIS(Vector3f.NEGATIVE_X_AXIS), POSITIVE_Y_AXIS(Vector3f.POSITIVE_Y_AXIS), NEGATIVE_Y_AXIS(Vector3f.NEGATIVE_Y_AXIS), POSITIVE_Z_AXIS(
+			Vector3f.POSITIVE_Z_AXIS), NEGATIVE_Z_AXIS(Vector3f.NEGATIVE_Z_AXIS), ;
+
+	private final Vector3f vector;
+
+	public final Vector3f getVector() {
+		return (vector);
+	}
+
+	private AxisIndicator(Vector3f vector) {
+		this.vector = vector;
+	}
 }

@@ -41,32 +41,28 @@ import org.openmali.vecmath2.Matrix3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Matrix3fPool extends ObjectPool< Matrix3f >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Matrix3f newInstance()
-    {
-        return ( new Matrix3f() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Matrix3f alloc()
-    {
-        Matrix3f o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Matrix3fPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Matrix3fPool extends ObjectPool<Matrix3f> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Matrix3f newInstance() {
+		return (new Matrix3f());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Matrix3f alloc() {
+		Matrix3f o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Matrix3fPool(int initialSize) {
+		super(initialSize);
+	}
 }

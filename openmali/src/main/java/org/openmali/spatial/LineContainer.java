@@ -40,20 +40,19 @@ import org.openmali.vecmath2.Tuple3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface LineContainer
-{
-    /**
-     * @return the number of lines in this object.
-     */
-    public int getLinesCount();
-    
-    /**
-     * This allows the spatial container to have access to all the lines
-     * in the object. Thsi method gets the i'th line.
-     *
-     * @param i
-     * @param start
-     * @param end
-     */
-    public boolean getLineCoordinates( int i, Tuple3f start, Tuple3f end );
+public interface LineContainer {
+	/**
+	 * @return the number of lines in this object.
+	 */
+	public int getLinesCount();
+
+	/**
+	 * This allows the spatial container to have access to all the lines
+	 * in the object. Thsi method gets the i'th line.
+	 *
+	 * @param i
+	 * @param start
+	 * @param end
+	 */
+	public boolean getLineCoordinates(int i, Tuple3f start, Tuple3f end);
 }

@@ -43,65 +43,58 @@ import org.openmali.spatial.bounds.BoundsType;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-class BoundsHelper
-{
-    public static final float getMinX( Bounds bounds, BoundsType type )
-    {
-        if ( type ==  BoundsType.AABB )
-            return ( ( (BoundingBox)bounds ).getLowerX() );
-        else if ( type ==  BoundsType.SPHERE )
-            return ( ( (BoundingSphere)bounds ).getCenterX() - ( (BoundingSphere)bounds ).getRadius() );
-        
-        return ( 0f );
-    }
-    
-    public static final float getMinY( Bounds bounds, BoundsType type )
-    {
-        if ( type ==  BoundsType.AABB )
-            return ( ( (BoundingBox)bounds ).getLowerY() );
-        else if ( type ==  BoundsType.SPHERE )
-            return ( ( (BoundingSphere)bounds ).getCenterY() - ( (BoundingSphere)bounds ).getRadius() );
-        
-        return ( 0f );
-    }
-    
-    public static final float getMinZ( Bounds bounds, BoundsType type )
-    {
-        if ( type ==  BoundsType.AABB )
-            return ( ( (BoundingBox)bounds ).getLowerZ() );
-        else if ( type ==  BoundsType.SPHERE )
-            return ( ( (BoundingSphere)bounds ).getCenterZ() - ( (BoundingSphere)bounds ).getRadius() );
-        
-        return ( 0f );
-    }
-    
-    public static final float getMaxX( Bounds bounds, BoundsType type )
-    {
-        if ( type ==  BoundsType.AABB )
-            return ( ( (BoundingBox)bounds ).getUpperX() );
-        else if ( type ==  BoundsType.SPHERE )
-            return ( ( (BoundingSphere)bounds ).getCenterX() + ( (BoundingSphere)bounds ).getRadius() );
-        
-        return ( 0f );
-    }
-    
-    public static final float getMaxY( Bounds bounds, BoundsType type )
-    {
-        if ( type ==  BoundsType.AABB )
-            return ( ( (BoundingBox)bounds ).getUpperY() );
-        else if ( type ==  BoundsType.SPHERE )
-            return ( ( (BoundingSphere)bounds ).getCenterY() + ( (BoundingSphere)bounds ).getRadius() );
-        
-        return ( 0f );
-    }
-    
-    public static final float getMaxZ( Bounds bounds, BoundsType type )
-    {
-        if ( type ==  BoundsType.AABB )
-            return ( ( (BoundingBox)bounds ).getUpperZ() );
-        else if ( type ==  BoundsType.SPHERE )
-            return ( ( (BoundingSphere)bounds ).getCenterZ() + ( (BoundingSphere)bounds ).getRadius() );
-        
-        return ( 0f );
-    }
+class BoundsHelper {
+	public static final float getMinX(Bounds bounds, BoundsType type) {
+		if (type == BoundsType.AABB)
+			return (((BoundingBox) bounds).getLowerX());
+		else if (type == BoundsType.SPHERE)
+			return (((BoundingSphere) bounds).getCenterX() - ((BoundingSphere) bounds).getRadius());
+
+		return (0f);
+	}
+
+	public static final float getMinY(Bounds bounds, BoundsType type) {
+		if (type == BoundsType.AABB)
+			return (((BoundingBox) bounds).getLowerY());
+		else if (type == BoundsType.SPHERE)
+			return (((BoundingSphere) bounds).getCenterY() - ((BoundingSphere) bounds).getRadius());
+
+		return (0f);
+	}
+
+	public static final float getMinZ(Bounds bounds, BoundsType type) {
+		if (type == BoundsType.AABB)
+			return (((BoundingBox) bounds).getLowerZ());
+		else if (type == BoundsType.SPHERE)
+			return (((BoundingSphere) bounds).getCenterZ() - ((BoundingSphere) bounds).getRadius());
+
+		return (0f);
+	}
+
+	public static final float getMaxX(Bounds bounds, BoundsType type) {
+		if (type == BoundsType.AABB)
+			return (((BoundingBox) bounds).getUpperX());
+		else if (type == BoundsType.SPHERE)
+			return (((BoundingSphere) bounds).getCenterX() + ((BoundingSphere) bounds).getRadius());
+
+		return (0f);
+	}
+
+	public static final float getMaxY(Bounds bounds, BoundsType type) {
+		if (type == BoundsType.AABB)
+			return (((BoundingBox) bounds).getUpperY());
+		else if (type == BoundsType.SPHERE)
+			return (((BoundingSphere) bounds).getCenterY() + ((BoundingSphere) bounds).getRadius());
+
+		return (0f);
+	}
+
+	public static final float getMaxZ(Bounds bounds, BoundsType type) {
+		if (type == BoundsType.AABB)
+			return (((BoundingBox) bounds).getUpperZ());
+		else if (type == BoundsType.SPHERE)
+			return (((BoundingSphere) bounds).getCenterZ() + ((BoundingSphere) bounds).getRadius());
+
+		return (0f);
+	}
 }

@@ -51,205 +51,204 @@ import org.openmali.vecmath2.Vector3f;
  * @author David Yazel
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface Bounds extends BodyInterface
-{
-    /**
-     * @return the BoundsType of this Bounds instance.
-     */
-    public abstract BoundsType getType();
-    
-    /**
-     * Gets and returns the bodie's center.
-     * 
-     * @param <T>
-     * @param center
-     * 
-     * @return the center buffer back again.
-     */
-    public abstract < T extends Tuple3f > T getCenter( T center );
-    
-    /**
-     * @return the center-point of this bounds instance.
-     */
-    public abstract float getCenterX();
-    
-    /**
-     * @return the center-point of this bounds instance.
-     */
-    public abstract float getCenterY();
-    
-    /**
-     * @return the center-point of this bounds instance.
-     */
-    public abstract float getCenterZ();
-    
-    /**
-     * @return the largest distance (squared) from the center
-     */
-    public abstract float getMaxCenterDistanceSquared();
-    
-    /**
-     * @return the largest distance from the center
-     */
-    public abstract float getMaxCenterDistance();
-    
-    /**
-     * Tests for intersection with a ray.
-     * 
-     * @param rayOrigin
-     * @param rayDirection
-     * @param intersection
-     */
-    public abstract boolean intersects( Point3f rayOrigin, Vector3f rayDirection, Tuple3f intersection );
-    
-    /**
-     * Tests for intersection with a ray.
-     * 
-     * @param ray
-     * @param intersection
-     */
-    public abstract boolean intersects( Ray3f ray, Tuple3f intersection );
-    
-    /**
-     * Tests for intersection with a ray.
-     * 
-     * @param rayOrigin
-     * @param rayDirection
-     */
-    public abstract boolean intersects( Point3f rayOrigin, Vector3f rayDirection );
-    
-    /**
-     * Tests for intersection with a ray.
-     * 
-     * @param ray
-     */
-    public abstract boolean intersects( Ray3f ray );
-    
-    /**
-     * Tests for intersection with another Bounds object.
-     * 
-     * @param bounds
-     */
-    public abstract boolean intersects( Bounds bounds );
-    
-    /**
-     * Tests for intersection with an array of Bounds objects.
-     * 
-     * @param bos
-     */
-    public abstract boolean intersects( Bounds[] bos );
-    
-    /**
-     * Finds closest bounding object that intersects this bounding object.
-     * 
-     * @param boundsObjects
-     */
-    public abstract Bounds closestIntersection( Bounds[] boundsObjects );
-    
-    /**
-     * Transforms the Bounds object by the given transform.
-     * 
-     * @param trans
-     */
-    public abstract void transform( Matrix4f trans );
-    
-    /**
-     * Transforms a Bounds object so that it bounds a volume that
-     * is the result of transforming the given bounding object by
-     * the given transform.
-     * 
-     * @param bounds
-     * @param trans
-     */
-    public abstract void transform( Bounds bounds, Matrix4f trans );
-    
-    /**
-     * Tests, if the given point is inside of these Bounds.
-     * 
-     * @param px
-     * @param py
-     * @param pz
-     * 
-     * @return true, if it is inside
-     */
-    public boolean contains( float px, float py, float pz );
-    
-    /**
-     * Tests, if the given point is inside of these Bounds.
-     * 
-     * @param point
-     * 
-     * @return true, if it is inside
-     */
-    public boolean contains( Point3f point );
-    
-    /**
-     * Combines this Body with a point.
-     * 
-     * @param x
-     * @param y
-     * @param z
-     */
-    public abstract void combine( float x, float y, float z );
-    
-    /**
-     * Combines this Body with a point.
-     * 
-     * @param point
-     */
-    public abstract void combine( Point3f point );
-    
-    /**
-     * Combine this Body with an array of points.
-     * 
-     * @param points
-     */
-    public abstract void combine( Point3f[] points );
-    
-    /**
-     * Sets the the value of this Bounds object to
-     * enclode the specified bounding object
-     * 
-     * @param boundsObject
-     */
-    public abstract void set( Box boundsObject );
-    
-    /**
-     * Sets the the value of this Bounds object to
-     * enclode the specified bounding object
-     * 
-     * @param boundsObject
-     */
-    public abstract void set( Sphere boundsObject );
-    
-    /**
-     * Sets the the value of this Bounds object to
-     * enclode the specified bounding object
-     * 
-     * @param boundsObject
-     */
-    public abstract void set( Bounds boundsObject );
-    
-    /**
-     * Sets this bounds to the comnination of all the specified bounds.
-     * Any current bounds information is replaced with this new combination
-     * 
-     * @param bounds
-     */
-    public abstract void set( Bounds[] bounds );
-    
-    /**
-     * @param source
-     */
-    public void compute( final VertexContainer source );
-    
-    /**
-     * @param coords
-     */
-    public void compute( final List<Tuple3f> coords );
-    
-    /**
-     * @param coords
-     */
-    public void compute( final Tuple3f[] coords );
+public interface Bounds extends BodyInterface {
+	/**
+	 * @return the BoundsType of this Bounds instance.
+	 */
+	public abstract BoundsType getType();
+
+	/**
+	 * Gets and returns the bodie's center.
+	 * 
+	 * @param <T>
+	 * @param center
+	 * 
+	 * @return the center buffer back again.
+	 */
+	public abstract <T extends Tuple3f> T getCenter(T center);
+
+	/**
+	 * @return the center-point of this bounds instance.
+	 */
+	public abstract float getCenterX();
+
+	/**
+	 * @return the center-point of this bounds instance.
+	 */
+	public abstract float getCenterY();
+
+	/**
+	 * @return the center-point of this bounds instance.
+	 */
+	public abstract float getCenterZ();
+
+	/**
+	 * @return the largest distance (squared) from the center
+	 */
+	public abstract float getMaxCenterDistanceSquared();
+
+	/**
+	 * @return the largest distance from the center
+	 */
+	public abstract float getMaxCenterDistance();
+
+	/**
+	 * Tests for intersection with a ray.
+	 * 
+	 * @param rayOrigin
+	 * @param rayDirection
+	 * @param intersection
+	 */
+	public abstract boolean intersects(Point3f rayOrigin, Vector3f rayDirection, Tuple3f intersection);
+
+	/**
+	 * Tests for intersection with a ray.
+	 * 
+	 * @param ray
+	 * @param intersection
+	 */
+	public abstract boolean intersects(Ray3f ray, Tuple3f intersection);
+
+	/**
+	 * Tests for intersection with a ray.
+	 * 
+	 * @param rayOrigin
+	 * @param rayDirection
+	 */
+	public abstract boolean intersects(Point3f rayOrigin, Vector3f rayDirection);
+
+	/**
+	 * Tests for intersection with a ray.
+	 * 
+	 * @param ray
+	 */
+	public abstract boolean intersects(Ray3f ray);
+
+	/**
+	 * Tests for intersection with another Bounds object.
+	 * 
+	 * @param bounds
+	 */
+	public abstract boolean intersects(Bounds bounds);
+
+	/**
+	 * Tests for intersection with an array of Bounds objects.
+	 * 
+	 * @param bos
+	 */
+	public abstract boolean intersects(Bounds[] bos);
+
+	/**
+	 * Finds closest bounding object that intersects this bounding object.
+	 * 
+	 * @param boundsObjects
+	 */
+	public abstract Bounds closestIntersection(Bounds[] boundsObjects);
+
+	/**
+	 * Transforms the Bounds object by the given transform.
+	 * 
+	 * @param trans
+	 */
+	public abstract void transform(Matrix4f trans);
+
+	/**
+	 * Transforms a Bounds object so that it bounds a volume that
+	 * is the result of transforming the given bounding object by
+	 * the given transform.
+	 * 
+	 * @param bounds
+	 * @param trans
+	 */
+	public abstract void transform(Bounds bounds, Matrix4f trans);
+
+	/**
+	 * Tests, if the given point is inside of these Bounds.
+	 * 
+	 * @param px
+	 * @param py
+	 * @param pz
+	 * 
+	 * @return true, if it is inside
+	 */
+	public boolean contains(float px, float py, float pz);
+
+	/**
+	 * Tests, if the given point is inside of these Bounds.
+	 * 
+	 * @param point
+	 * 
+	 * @return true, if it is inside
+	 */
+	public boolean contains(Point3f point);
+
+	/**
+	 * Combines this Body with a point.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 */
+	public abstract void combine(float x, float y, float z);
+
+	/**
+	 * Combines this Body with a point.
+	 * 
+	 * @param point
+	 */
+	public abstract void combine(Point3f point);
+
+	/**
+	 * Combine this Body with an array of points.
+	 * 
+	 * @param points
+	 */
+	public abstract void combine(Point3f[] points);
+
+	/**
+	 * Sets the the value of this Bounds object to
+	 * enclode the specified bounding object
+	 * 
+	 * @param boundsObject
+	 */
+	public abstract void set(Box boundsObject);
+
+	/**
+	 * Sets the the value of this Bounds object to
+	 * enclode the specified bounding object
+	 * 
+	 * @param boundsObject
+	 */
+	public abstract void set(Sphere boundsObject);
+
+	/**
+	 * Sets the the value of this Bounds object to
+	 * enclode the specified bounding object
+	 * 
+	 * @param boundsObject
+	 */
+	public abstract void set(Bounds boundsObject);
+
+	/**
+	 * Sets this bounds to the comnination of all the specified bounds.
+	 * Any current bounds information is replaced with this new combination
+	 * 
+	 * @param bounds
+	 */
+	public abstract void set(Bounds[] bounds);
+
+	/**
+	 * @param source
+	 */
+	public void compute(final VertexContainer source);
+
+	/**
+	 * @param coords
+	 */
+	public void compute(final List<Tuple3f> coords);
+
+	/**
+	 * @param coords
+	 */
+	public void compute(final Tuple3f[] coords);
 }

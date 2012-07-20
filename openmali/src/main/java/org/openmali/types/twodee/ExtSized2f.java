@@ -41,20 +41,19 @@ import org.openmali.types.twodee.util.ResizeListener2f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface ExtSized2f extends Sized2f
-{
-    /**
-     * Adds a new ResizeListener2i. The event is fired from the rendering
-     * thread, if necessary.
-     * 
-     * @param listener
-     */
-    public void addResizeListener( ResizeListener2f listener );
-    
-    /**
-     * Removes the given ResizeListener2i from the List, if it was present.
-     * 
-     * @param listener
-     */
-    public void removeResizeListener( ResizeListener2f listener );
+public interface ExtSized2f extends Sized2f {
+	/**
+	 * Adds a new ResizeListener2i. The event is fired from the rendering
+	 * thread, if necessary.
+	 * 
+	 * @param listener
+	 */
+	public void addResizeListener(ResizeListener2f listener);
+
+	/**
+	 * Removes the given ResizeListener2i from the List, if it was present.
+	 * 
+	 * @param listener
+	 */
+	public void removeResizeListener(ResizeListener2f listener);
 }

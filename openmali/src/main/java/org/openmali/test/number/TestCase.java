@@ -35,27 +35,20 @@ package org.openmali.test.number;
 
 /**
  */
-public class TestCase
-{
-    public void assertTrue( boolean bool )
-    {
-        if ( !bool )
-        {
-            try
-            {
-                throw new RuntimeException();
-            }
-            catch ( RuntimeException e )
-            {
-                e.printStackTrace();
-                
-                throw e;
-            }
-        }
-    }
-    
-    public final void assertEquals( Object a, Object b )
-    {
-        assertTrue( a.equals( b ) );
-    }
+public class TestCase {
+	public void assertTrue(boolean bool) {
+		if (!bool) {
+			try {
+				throw new RuntimeException();
+			} catch (RuntimeException e) {
+				e.printStackTrace();
+
+				throw e;
+			}
+		}
+	}
+
+	public final void assertEquals(Object a, Object b) {
+		assertTrue(a.equals(b));
+	}
 }

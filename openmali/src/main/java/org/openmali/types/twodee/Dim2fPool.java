@@ -40,16 +40,13 @@ import org.openmali.pooling.ObjectPool;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-class Dim2fPool extends ObjectPool< Dim2f >
-{
-    @Override
-    protected final Dim2f newInstance()
-    {
-        return ( new Dim2f() );
-    }
-    
-    public Dim2fPool()
-    {
-        super( 16 );
-    }
+class Dim2fPool extends ObjectPool<Dim2f> {
+	@Override
+	protected final Dim2f newInstance() {
+		return (new Dim2f());
+	}
+
+	public Dim2fPool() {
+		super(16);
+	}
 }

@@ -40,85 +40,75 @@ import org.openmali.vecmath2.Point3f;
  * @author YVG
  * @author Marvin Froehlich (aka Qudus)
  */
-public abstract class ConvexHull extends Body
-{
-    protected Plane[] slabs;
-    
-    /**
-     * test for intersection with a point
-     */
-    public boolean intersect( Point3f point )
-    {
-        for ( int i =0; i < slabs.length; i++ )
-        {
-            if ( slabs[ i ].distanceTo( point ) > 0 )
-                return ( false );
-        }
-        
-        return ( true );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public boolean contains( float px, float py, float pz )
-    {
-        //return ( Classifier.classifyConvexHullPoint( this, px, py, pz ) == Classifier.Classification.INSIDE );
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public boolean contains( Point3f point )
-    {
-        return ( contains( point.getX(), point.getY(), point.getZ() ) );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void combine( BodyInterface body )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void combine( BodyInterface[] bos )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void combine( float px, float py, float pz )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void combine( Point3f point )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void combine( Point3f[] points )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    public ConvexHull( Plane[] theSlabs )
-    {
-        super();
-        
-        slabs = theSlabs;
-    }
+public abstract class ConvexHull extends Body {
+	protected Plane[] slabs;
+
+	/**
+	 * test for intersection with a point
+	 */
+	public boolean intersect(Point3f point) {
+		for (int i = 0; i < slabs.length; i++) {
+			if (slabs[i].distanceTo(point) > 0)
+				return (false);
+		}
+
+		return (true);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean contains(float px, float py, float pz) {
+		// return ( Classifier.classifyConvexHullPoint( this, px, py, pz ) ==
+		// Classifier.Classification.INSIDE );
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean contains(Point3f point) {
+		return (contains(point.getX(), point.getY(), point.getZ()));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void combine(BodyInterface body) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void combine(BodyInterface[] bos) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void combine(float px, float py, float pz) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void combine(Point3f point) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void combine(Point3f[] points) {
+		throw new UnsupportedFunction();
+	}
+
+	public ConvexHull(Plane[] theSlabs) {
+		super();
+
+		slabs = theSlabs;
+	}
 }

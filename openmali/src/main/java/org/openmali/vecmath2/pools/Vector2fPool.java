@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Vector2f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Vector2fPool extends ObjectPool< Vector2f >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Vector2f newInstance()
-    {
-        return ( new Vector2f() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Vector2f alloc()
-    {
-        Vector2f o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Vector2f alloc( float x, float y )
-    {
-        Vector2f o = super.alloc();
-        
-        o.set( x, y );
-        
-        return ( o );
-    }
-    
-    public Vector2fPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Vector2fPool extends ObjectPool<Vector2f> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Vector2f newInstance() {
+		return (new Vector2f());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Vector2f alloc() {
+		Vector2f o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Vector2f alloc(float x, float y) {
+		Vector2f o = super.alloc();
+
+		o.set(x, y);
+
+		return (o);
+	}
+
+	public Vector2fPool(int initialSize) {
+		super(initialSize);
+	}
 }

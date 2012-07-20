@@ -44,98 +44,89 @@ import org.openmali.FastMath;
  * @author Amos Wenger (aka BlueSky)
  */
 public class LinearTerrainHeight {
-    
-    public static float evaluateZ(float[][] height, float hx, float hy,
-            float x, float y) {
-        
-        //System.out.println("For coords = "+x+", "+y);
-        
-        // Divide coords by cellSize so we have unit squares to work with
-        x = x / hx;
-        y = y / hy;
-        
-        //System.out.println("Divided, now : "+x+", "+y);
-        
-        // Compute floor X and ceil X
-        int mx = (int) FastMath.floor(x);
-        int px = (int) FastMath.ceil(x);
-        
-        // Avoid mx == px
-        if (mx == px) {
-            //System.out.println("Avoid mx==px !!!!!!");
-            px += 1;
-        }
-        
-        // Compute floor Y and ceil Y
-        int my = (int) FastMath.floor(y);
-        int py = (int) FastMath.ceil(y);
-        
-        // Avoid my == py
-        if (my == py) {
-            //System.out.println("Avoid my==py !!!!!!");
-            py += 1;
-        }
-        
-        // Compute height on (mx, py)-(px, py) line
-        float e1 = getZ(height, mx, py) * (1 - (x - mx))
-        + getZ(height, px, py) * (1 - (px - x));
-        
-        // Compute height on (mx, my)-(px, my) line
-        float e2 = getZ(height, mx, my) * (1 - (x - mx))
-        + getZ(height, px, my) * (1 - (px - x));
-        
-        // Compute height on (x, y)
-        float h = e1 * (1 - (py - y)) + e2 * (1 - (y - my));
-        
-        //System.out.println("Found height : "+h);
-        
-        return h;
-        
-    }
-    
-    public static int getDimX(float[][] height) {
-        
-        return height[0].length;
-        
-    }
-    
-    public static int getDimY(float[][] height) {
-        
-        return height.length;
-        
-    }
-    
-    public static float getZ(float[][] height, int x, int y) {
-        
-        float z = 0f;
-        
-        int rx = Math.min(x, getDimX(height) - 1);
-        rx = Math.max(rx, 0);
-        int ry = Math.min(y, getDimY(height) - 1);
-        ry = Math.max(ry, 0);
-        
-        /*
-        if(x != rx) {
-            System.out.println("X fixed. Was "+x+", now "+rx);
-        }
-        if(y != ry) {
-            System.out.println("Y fixed. Was "+y+", now "+ry);
-        }
-        */
-        
-        try {
-            z = height[rx][ry];
-            /*
-            if(x != rx || y != ry) {
-                System.out.println("Gives height "+z);
-            }
-            */
-        } catch (ArrayIndexOutOfBoundsException e) {
-            e.printStackTrace();
-        }
-        
-        return z;
-        
-    }
-    
+
+	public static float evaluateZ(float[][] height, float hx, float hy, float x, float y) {
+
+		// System.out.println("For coords = "+x+", "+y);
+
+		// Divide coords by cellSize so we have unit squares to work with
+		x = x / hx;
+		y = y / hy;
+
+		// System.out.println("Divided, now : "+x+", "+y);
+
+		// Compute floor X and ceil X
+		int mx = (int) FastMath.floor(x);
+		int px = (int) FastMath.ceil(x);
+
+		// Avoid mx == px
+		if (mx == px) {
+			// System.out.println("Avoid mx==px !!!!!!");
+			px += 1;
+		}
+
+		// Compute floor Y and ceil Y
+		int my = (int) FastMath.floor(y);
+		int py = (int) FastMath.ceil(y);
+
+		// Avoid my == py
+		if (my == py) {
+			// System.out.println("Avoid my==py !!!!!!");
+			py += 1;
+		}
+
+		// Compute height on (mx, py)-(px, py) line
+		float e1 = getZ(height, mx, py) * (1 - (x - mx)) + getZ(height, px, py) * (1 - (px - x));
+
+		// Compute height on (mx, my)-(px, my) line
+		float e2 = getZ(height, mx, my) * (1 - (x - mx)) + getZ(height, px, my) * (1 - (px - x));
+
+		// Compute height on (x, y)
+		float h = e1 * (1 - (py - y)) + e2 * (1 - (y - my));
+
+		// System.out.println("Found height : "+h);
+
+		return h;
+
+	}
+
+	public static int getDimX(float[][] height) {
+
+		return height[0].length;
+
+	}
+
+	public static int getDimY(float[][] height) {
+
+		return height.length;
+
+	}
+
+	public static float getZ(float[][] height, int x, int y) {
+
+		float z = 0f;
+
+		int rx = Math.min(x, getDimX(height) - 1);
+		rx = Math.max(rx, 0);
+		int ry = Math.min(y, getDimY(height) - 1);
+		ry = Math.max(ry, 0);
+
+		/*
+		 * if(x != rx) { System.out.println("X fixed. Was "+x+", now "+rx); }
+		 * if(y != ry) { System.out.println("Y fixed. Was "+y+", now "+ry); }
+		 */
+
+		try {
+			z = height[rx][ry];
+			/*
+			 * if(x != rx || y != ry) { System.out.println("Gives height "+z); }
+			 */
+		} catch (ArrayIndexOutOfBoundsException e) {
+			e.printStackTrace();
+		}
+
+		return z;
+
+	}
+
 }

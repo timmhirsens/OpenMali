@@ -41,50 +41,44 @@ import org.openmali.vecmath2.Colorf;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class ColorfPool extends ObjectPool< Colorf >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Colorf newInstance()
-    {
-        return ( new Colorf() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Colorf alloc()
-    {
-        Colorf o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Colorf alloc( float r, float g, float b )
-    {
-        Colorf o = super.alloc();
-        
-        o.set( r, g, b );
-        
-        return ( o );
-    }
-    
-    public Colorf alloc( float r, float g, float b, float a )
-    {
-        Colorf o = super.alloc();
-        
-        o.set( r, g, b, a );
-        
-        return ( o );
-    }
-    
-    public ColorfPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class ColorfPool extends ObjectPool<Colorf> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Colorf newInstance() {
+		return (new Colorf());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Colorf alloc() {
+		Colorf o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Colorf alloc(float r, float g, float b) {
+		Colorf o = super.alloc();
+
+		o.set(r, g, b);
+
+		return (o);
+	}
+
+	public Colorf alloc(float r, float g, float b, float a) {
+		Colorf o = super.alloc();
+
+		o.set(r, g, b, a);
+
+		return (o);
+	}
+
+	public ColorfPool(int initialSize) {
+		super(initialSize);
+	}
 }

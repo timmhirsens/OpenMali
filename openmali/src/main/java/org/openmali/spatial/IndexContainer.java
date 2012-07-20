@@ -38,25 +38,24 @@ package org.openmali.spatial;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface IndexContainer
-{
-    /**
-     * @return the number of indices in this object.
-     */
-    public int getIndexCount();
-    
-    /**
-     * This allows the spatial container to have access to all the indices
-     * in the object.
-     *
-     * @param i
-     * 
-     * @return the index at <code>i</code> or -1, if the index could not be retrieved
-     */
-    public int getIndex( int i );
-    
-    /**
-     * @return the whole index array.
-     */
-    public int[] getIndex();
+public interface IndexContainer {
+	/**
+	 * @return the number of indices in this object.
+	 */
+	public int getIndexCount();
+
+	/**
+	 * This allows the spatial container to have access to all the indices
+	 * in the object.
+	 *
+	 * @param i
+	 * 
+	 * @return the index at <code>i</code> or -1, if the index could not be retrieved
+	 */
+	public int getIndex(int i);
+
+	/**
+	 * @return the whole index array.
+	 */
+	public int[] getIndex();
 }

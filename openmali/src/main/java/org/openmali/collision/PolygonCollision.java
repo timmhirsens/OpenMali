@@ -54,9 +54,7 @@ public abstract class PolygonCollision {
 		for (i = 0, j = (data.length - 1); i < data.length; j = i++) {
 
 			if ((((data[i].getY() <= point.getY()) && (point.getY() < data[j].getY())) || ((data[j].getY() <= point.getY()) && (point.getY() < data[i].getY())))
-					&& (point.getX() < (data[j].getX() - data[i].getX())
-							* (point.getY() - data[i].getY()) / (data[j].getY() - data[i].getY())
-							+ data[i].getX())) {
+					&& (point.getX() < (data[j].getX() - data[i].getX()) * (point.getY() - data[i].getY()) / (data[j].getY() - data[i].getY()) + data[i].getX())) {
 				c = !c;
 			}
 		}
@@ -64,7 +62,7 @@ public abstract class PolygonCollision {
 		return c;
 
 	}
-	
+
 	/**
 	 * @param data
 	 *            The polygon data
@@ -81,9 +79,7 @@ public abstract class PolygonCollision {
 		for (i = 0, j = (data.length - 1); i < data.length; j = i++) {
 
 			if ((((data[i].getY() <= point.getY()) && (point.getY() < data[j].getY())) || ((data[j].getY() <= point.getY()) && (point.getY() < data[i].getY())))
-					&& (point.getX() < (data[j].getX() - data[i].getX())
-							* (point.getY() - data[i].getY()) / (data[j].getY() - data[i].getY())
-							+ data[i].getX())) {
+					&& (point.getX() < (data[j].getX() - data[i].getX()) * (point.getY() - data[i].getY()) / (data[j].getY() - data[i].getY()) + data[i].getX())) {
 				c = !c;
 			}
 		}

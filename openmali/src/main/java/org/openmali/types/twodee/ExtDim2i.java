@@ -43,86 +43,73 @@ import org.openmali.types.twodee.util.ResizeListener2i;
  * @author Marvin Froehlich (aka Qudus)
  * @author Kevin Finley (aka Horati)
  */
-public class ExtDim2i extends Dim2i implements ExtSized2i
-{
-    private final ArrayList< ResizeListener2i > resizeListeners = new ArrayList< ResizeListener2i >();
-    
-    /**
-     * {@inheritDoc}
-     * Notification takes place in the thread that called this.setSize(...). 
-     */
-    public void addResizeListener( ResizeListener2i listener )
-    {
-        this.resizeListeners.add( listener );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void removeResizeListener( ResizeListener2i listener )
-    {
-        this.resizeListeners.remove( listener );
-    }
-    
-    protected void fireResizeEvent( int oldWidth, int oldHeight, int newWidth, int newHeight )
-    {
-        for ( int i = 0; i < resizeListeners.size(); i++ )
-        {
-            resizeListeners.get( i ).onObjectResized( this, oldWidth, oldHeight, newWidth, newHeight );
-        }
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public ExtDim2i setSize( int width, int height )
-    {
-        final int oldWidth = getWidth();
-        final int oldHeight = getHeight();
-        
-        if ( ( oldWidth != width ) || ( oldHeight != height ) )
-        {
-            super.setSize( width, height );
-            
-            fireResizeEvent( oldWidth, oldHeight, width, height );
-        }
-        /*
-        else
-        {
-            super.setSize( width, height );
-        }
-        */
-        
-        return ( this );
-    }
-    
-    /**
-     * Creates a new 2-dimensional unpositioned rectangle.
-     * 
-     * @param width the rectangle's width
-     * @param height the rectangle's height
-     */
-    public ExtDim2i( int width, int height )
-    {
-        super( width, height );
-    }
-    
-    /**
-     * Creates a new 2-dimensional unpositioned rectangle and copies the template's coordinates.
-     * 
-     * @param template
-     */
-    public ExtDim2i( Sized2iRO template )
-    {
-        this( template.getWidth(), template.getHeight() );
-    }
-    
-    /**
-     * Creates a new 2-dimensional unpositioned rectangle with zero position and size.
-     */
-    public ExtDim2i()
-    {
-        this( 0, 0 );
-    }
+public class ExtDim2i extends Dim2i implements ExtSized2i {
+	private final ArrayList<ResizeListener2i> resizeListeners = new ArrayList<ResizeListener2i>();
+
+	/**
+	 * {@inheritDoc}
+	 * Notification takes place in the thread that called this.setSize(...). 
+	 */
+	public void addResizeListener(ResizeListener2i listener) {
+		this.resizeListeners.add(listener);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void removeResizeListener(ResizeListener2i listener) {
+		this.resizeListeners.remove(listener);
+	}
+
+	protected void fireResizeEvent(int oldWidth, int oldHeight, int newWidth, int newHeight) {
+		for (int i = 0; i < resizeListeners.size(); i++) {
+			resizeListeners.get(i).onObjectResized(this, oldWidth, oldHeight, newWidth, newHeight);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ExtDim2i setSize(int width, int height) {
+		final int oldWidth = getWidth();
+		final int oldHeight = getHeight();
+
+		if ((oldWidth != width) || (oldHeight != height)) {
+			super.setSize(width, height);
+
+			fireResizeEvent(oldWidth, oldHeight, width, height);
+		}
+		/*
+		 * else { super.setSize( width, height ); }
+		 */
+
+		return (this);
+	}
+
+	/**
+	 * Creates a new 2-dimensional unpositioned rectangle.
+	 * 
+	 * @param width the rectangle's width
+	 * @param height the rectangle's height
+	 */
+	public ExtDim2i(int width, int height) {
+		super(width, height);
+	}
+
+	/**
+	 * Creates a new 2-dimensional unpositioned rectangle and copies the template's coordinates.
+	 * 
+	 * @param template
+	 */
+	public ExtDim2i(Sized2iRO template) {
+		this(template.getWidth(), template.getHeight());
+	}
+
+	/**
+	 * Creates a new 2-dimensional unpositioned rectangle with zero position and size.
+	 */
+	public ExtDim2i() {
+		this(0, 0);
+	}
 }

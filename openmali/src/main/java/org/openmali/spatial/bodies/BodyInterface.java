@@ -40,62 +40,61 @@ import org.openmali.vecmath2.Point3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface BodyInterface
-{
-    /**
-     * Tests, if the given point is inside of this Body.
-     * 
-     * @param px
-     * @param py
-     * @param pz
-     * 
-     * @return true, if it is inside
-     */
-    public abstract boolean contains( float px, float py, float pz );
-    
-    /**
-     * Tests, if the given point is inside of this Body.
-     * 
-     * @param point
-     * 
-     * @return true, if it is inside
-     */
-    public abstract boolean contains( Point3f point );
-    
-    /**
-     * Combines this Body with a bounding object.
-     * 
-     * @param body
-     */
-    public abstract void combine( BodyInterface body );
-    
-    /**
-     * Combines this Body with an array of bounding objects.
-     * 
-     * @param bodies
-     */
-    public abstract void combine( BodyInterface[] bodies );
-    
-    /**
-     * Combines this Body with a point.
-     * 
-     * @param x
-     * @param y
-     * @param z
-     */
-    public abstract void combine( float x, float y, float z );
-    
-    /**
-     * Combines this Body with a point.
-     * 
-     * @param point
-     */
-    public abstract void combine( Point3f point );
-    
-    /**
-     * Combine this Body with an array of points.
-     * 
-     * @param points
-     */
-    public abstract void combine( Point3f[] points );
+public interface BodyInterface {
+	/**
+	 * Tests, if the given point is inside of this Body.
+	 * 
+	 * @param px
+	 * @param py
+	 * @param pz
+	 * 
+	 * @return true, if it is inside
+	 */
+	public abstract boolean contains(float px, float py, float pz);
+
+	/**
+	 * Tests, if the given point is inside of this Body.
+	 * 
+	 * @param point
+	 * 
+	 * @return true, if it is inside
+	 */
+	public abstract boolean contains(Point3f point);
+
+	/**
+	 * Combines this Body with a bounding object.
+	 * 
+	 * @param body
+	 */
+	public abstract void combine(BodyInterface body);
+
+	/**
+	 * Combines this Body with an array of bounding objects.
+	 * 
+	 * @param bodies
+	 */
+	public abstract void combine(BodyInterface[] bodies);
+
+	/**
+	 * Combines this Body with a point.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 */
+	public abstract void combine(float x, float y, float z);
+
+	/**
+	 * Combines this Body with a point.
+	 * 
+	 * @param point
+	 */
+	public abstract void combine(Point3f point);
+
+	/**
+	 * Combine this Body with an array of points.
+	 * 
+	 * @param points
+	 */
+	public abstract void combine(Point3f[] points);
 }

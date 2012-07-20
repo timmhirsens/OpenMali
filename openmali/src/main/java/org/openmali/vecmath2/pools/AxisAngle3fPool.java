@@ -41,41 +41,36 @@ import org.openmali.vecmath2.AxisAngle3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class AxisAngle3fPool extends ObjectPool< AxisAngle3f >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected AxisAngle3f newInstance()
-    {
-        return ( new AxisAngle3f() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public AxisAngle3f alloc()
-    {
-        AxisAngle3f o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public AxisAngle3f alloc( float x, float y, float z, float angle )
-    {
-        AxisAngle3f o = super.alloc();
-        
-        o.set( x, y, z, angle );
-        
-        return ( o );
-    }
-    
-    public AxisAngle3fPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class AxisAngle3fPool extends ObjectPool<AxisAngle3f> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected AxisAngle3f newInstance() {
+		return (new AxisAngle3f());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public AxisAngle3f alloc() {
+		AxisAngle3f o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public AxisAngle3f alloc(float x, float y, float z, float angle) {
+		AxisAngle3f o = super.alloc();
+
+		o.set(x, y, z, angle);
+
+		return (o);
+	}
+
+	public AxisAngle3fPool(int initialSize) {
+		super(initialSize);
+	}
 }

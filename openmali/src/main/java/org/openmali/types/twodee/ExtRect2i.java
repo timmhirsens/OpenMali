@@ -44,142 +44,120 @@ import org.openmali.types.twodee.util.ResizeListener2i;
  * @author Marvin Froehlich (aka Qudus)
  * @author Kevin Finley (aka Horati)
  */
-public class ExtRect2i extends Rect2i implements ExtPositioned2i, ExtSized2i
-{
-    private final ArrayList< RepositionListener2i > repositionListeners = new ArrayList< RepositionListener2i >();
-    private final ArrayList< ResizeListener2i > resizeListeners = new ArrayList< ResizeListener2i >();
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void addRepositionListener( RepositionListener2i listener )
-    {
-        this.repositionListeners.add( listener );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void removeRepositionListener( RepositionListener2i listener )
-    {
-        this.repositionListeners.remove( listener );
-    }
-    
-    protected void fireRepositionEvent( int oldLeft, int oldTop, int newLeft, int newTop )
-    {
-        for ( int i = 0; i < repositionListeners.size(); i++ )
-        {
-            repositionListeners.get( i ).onObjectRepositioned( this, oldLeft, oldTop, newLeft, newTop );
-        }
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void addResizeListener( ResizeListener2i listener )
-    {
-        this.resizeListeners.add( listener );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void removeResizeListener( ResizeListener2i listener )
-    {
-        this.resizeListeners.remove( listener );
-    }
-    
-    protected void fireResizeEvent( int oldWidth, int oldHeight, int newWidth, int newHeight )
-    {
-        for ( int i = 0; i < resizeListeners.size(); i++ )
-        {
-            resizeListeners.get( i ).onObjectResized( this, oldWidth, oldHeight, newWidth, newHeight );
-        }
-    }
-    
-    /**
-     * Sets the upper-left corner's coordinates.
-     * 
-     * @param left
-     * @param top
-     * 
-     * @return true, if the location actually has changed
-     */
-    @Override
-    public ExtRect2i setLocation( int left, int top )
-    {
-        final int oldLeft = getLeft();
-        final int oldTop = getTop();
-        
-        if ( ( oldLeft != left ) || ( oldTop != top ) )
-        {
-            super.setLocation( left, top );
-            
-            fireRepositionEvent( oldLeft, oldTop, left, top );
-        }
-        /*
-        else
-        {
-            super.setLocation( left, top );
-        }
-        */
-        
-        return ( this );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public ExtRect2i setSize( int width, int height )
-    {
-        final int oldWidth = getWidth();
-        final int oldHeight = getHeight();
-        
-        if ( ( oldWidth != width ) || ( oldHeight != height ) )
-        {
-            super.setSize( width, height );
-            
-            fireResizeEvent( oldWidth, oldHeight, width, height );
-        }
-        /*
-        else
-        {
-            super.setSize( width, height );
-        }
-        */
-        
-        return ( this );
-    }
-    
-    /**
-     * Creates a new 2-dimensional rectangle.
-     * 
-     * @param left the upper-left corner's x-coordinate
-     * @param top the upper-left corner's y-coordinate
-     * @param width the rectangle's width
-     * @param height the rectangle's height
-     */
-    public ExtRect2i( int left, int top, int width, int height )
-    {
-        super( left, top, width, height );
-    }
-    
-    /**
-     * Creates a new 2-dimensional rectangle and copies the template's coordinates.
-     * 
-     * @param template
-     */
-    public ExtRect2i( ExtRect2i template )
-    {
-        this( template.getLeft(), template.getTop(), template.getWidth(), template.getHeight() );
-    }
-    
-    /**
-     * Creates a new 2-dimensional rectangle with zero position and size.
-     */
-    public ExtRect2i()
-    {
-        this( 0, 0, 0, 0 );
-    }
+public class ExtRect2i extends Rect2i implements ExtPositioned2i, ExtSized2i {
+	private final ArrayList<RepositionListener2i> repositionListeners = new ArrayList<RepositionListener2i>();
+	private final ArrayList<ResizeListener2i> resizeListeners = new ArrayList<ResizeListener2i>();
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void addRepositionListener(RepositionListener2i listener) {
+		this.repositionListeners.add(listener);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void removeRepositionListener(RepositionListener2i listener) {
+		this.repositionListeners.remove(listener);
+	}
+
+	protected void fireRepositionEvent(int oldLeft, int oldTop, int newLeft, int newTop) {
+		for (int i = 0; i < repositionListeners.size(); i++) {
+			repositionListeners.get(i).onObjectRepositioned(this, oldLeft, oldTop, newLeft, newTop);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void addResizeListener(ResizeListener2i listener) {
+		this.resizeListeners.add(listener);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void removeResizeListener(ResizeListener2i listener) {
+		this.resizeListeners.remove(listener);
+	}
+
+	protected void fireResizeEvent(int oldWidth, int oldHeight, int newWidth, int newHeight) {
+		for (int i = 0; i < resizeListeners.size(); i++) {
+			resizeListeners.get(i).onObjectResized(this, oldWidth, oldHeight, newWidth, newHeight);
+		}
+	}
+
+	/**
+	 * Sets the upper-left corner's coordinates.
+	 * 
+	 * @param left
+	 * @param top
+	 * 
+	 * @return true, if the location actually has changed
+	 */
+	@Override
+	public ExtRect2i setLocation(int left, int top) {
+		final int oldLeft = getLeft();
+		final int oldTop = getTop();
+
+		if ((oldLeft != left) || (oldTop != top)) {
+			super.setLocation(left, top);
+
+			fireRepositionEvent(oldLeft, oldTop, left, top);
+		}
+		/*
+		 * else { super.setLocation( left, top ); }
+		 */
+
+		return (this);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ExtRect2i setSize(int width, int height) {
+		final int oldWidth = getWidth();
+		final int oldHeight = getHeight();
+
+		if ((oldWidth != width) || (oldHeight != height)) {
+			super.setSize(width, height);
+
+			fireResizeEvent(oldWidth, oldHeight, width, height);
+		}
+		/*
+		 * else { super.setSize( width, height ); }
+		 */
+
+		return (this);
+	}
+
+	/**
+	 * Creates a new 2-dimensional rectangle.
+	 * 
+	 * @param left the upper-left corner's x-coordinate
+	 * @param top the upper-left corner's y-coordinate
+	 * @param width the rectangle's width
+	 * @param height the rectangle's height
+	 */
+	public ExtRect2i(int left, int top, int width, int height) {
+		super(left, top, width, height);
+	}
+
+	/**
+	 * Creates a new 2-dimensional rectangle and copies the template's coordinates.
+	 * 
+	 * @param template
+	 */
+	public ExtRect2i(ExtRect2i template) {
+		this(template.getLeft(), template.getTop(), template.getWidth(), template.getHeight());
+	}
+
+	/**
+	 * Creates a new 2-dimensional rectangle with zero position and size.
+	 */
+	public ExtRect2i() {
+		this(0, 0, 0, 0);
+	}
 }

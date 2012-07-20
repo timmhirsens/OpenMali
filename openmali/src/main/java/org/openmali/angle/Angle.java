@@ -36,10 +36,9 @@ package org.openmali.angle;
 import java.util.Random;
 
 import org.openmali.FastMath;
+import org.openmali.test.Test;
 import org.openmali.vecmath2.Tuple2f;
 import org.openmali.vecmath2.Vector2f;
-
-import org.openmali.test.Test;
 
 /**
  * Class to compute angle vectors makes with the origin and vectors
@@ -48,91 +47,84 @@ import org.openmali.test.Test;
  * @author Amos Wenger (aka BlueSky)
  */
 public abstract class Angle {
-	
+
 	/**
 	 * @return The angle that the vector makes with the origin (0, 1)
 	 */
 	public static float angle(float x, float y) {
-		
+
 		return FastMath.toDeg(FastMath.atan2(x, y));
-		
+
 	}
-	
+
 	/**
 	 * @return The angle that the vector makes with the origin (0, 1)
 	 */
 	public static float angle(Tuple2f t) {
-		
+
 		return FastMath.toDeg(FastMath.atan2(t.getX(), t.getY()));
-		
+
 	}
-	
+
 	/**
 	 * @return A vector which makes a certain angle with the origin (0, 1)
 	 */
 	public static Vector2f vec(float angle) {
-		
-		Vector2f vec = new Vector2f(
-                FastMath.sin(FastMath.toRad(angle)),
-                FastMath.cos(FastMath.toRad(angle))
-				);
-		
+
+		Vector2f vec = new Vector2f(FastMath.sin(FastMath.toRad(angle)), FastMath.cos(FastMath.toRad(angle)));
+
 		return vec;
-		
+
 	}
-	
+
 	/**
 	 * @return A vector which makes a certain angle with the origin (0, 1)
 	 */
 	public static Vector2f vec(float angle, float length) {
-		
-		Vector2f vec = new Vector2f(
-				FastMath.sin(FastMath.toRad(angle)),
-                FastMath.cos(FastMath.toRad(angle))
-				);
+
+		Vector2f vec = new Vector2f(FastMath.sin(FastMath.toRad(angle)), FastMath.cos(FastMath.toRad(angle)));
 		vec.scale(length);
-		
+
 		return vec;
-		
+
 	}
-	
+
 	/**
 	 * Main method : test
 	 */
 	public static void main(String[] argv) {
-		
+
 		Random ran = new Random(1846506);
-		
+
 		Vector2f vec = new Vector2f(ran.nextFloat(), ran.nextFloat());
 		vec.normalize();
 		float angle = angle(vec);
-		System.out.println("Angle with vec "+vec+" = "+angle);
-	
+		System.out.println("Angle with vec " + vec + " = " + angle);
+
 		Vector2f vec2 = vec(angle);
-		System.out.println("Vec with angle "+angle+" = "+vec2);
-		
+		System.out.println("Vec with angle " + angle + " = " + vec2);
+
 		vec.round(3);
 		vec2.round(3);
-		if(vec.equals(vec2)) {
+		if (vec.equals(vec2)) {
 			Test.passed(1);
 		} else {
 			Test.failed(1);
 		}
-		
+
 		float len = ran.nextFloat();
 		Vector2f vec3 = vec(angle, len);
 		float len2 = vec3.length();
-		System.out.println("Double-scaled vec = "+angle+" = "+vec3+
-				" of length "+len2+" should be "+len);
-		
+		System.out.println("Double-scaled vec = " + angle + " = " + vec3 + " of length " + len2 + " should be " + len);
+
 		len = NumberUtil.round(len, 3);
 		len2 = NumberUtil.round(len2, 3);
-		if(len2 == len) {
+		if (len2 == len) {
 			Test.passed(2);
 		} else {
 			Test.failed(2);
 		}
-		
+
 	}
 
 }

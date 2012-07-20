@@ -40,11 +40,10 @@ import org.openmali.spatial.bounds.Bounds;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface SpatialNode
-{
-    public Bounds getWorldBounds();
-    
-    public void setTreeCell( Object treeCell );
-    
-    public Object getTreeCell();
+public interface SpatialNode {
+	public Bounds getWorldBounds();
+
+	public void setTreeCell(Object treeCell);
+
+	public Object getTreeCell();
 }

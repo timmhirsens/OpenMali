@@ -41,104 +41,92 @@ import org.openmali.vecmath2.Tuple3f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public abstract class Body implements BodyInterface
-{
-    protected float centerX, centerY, centerZ;
-    protected float maxCenterDist, maxCenterDistSquared;
-    
-    protected boolean distComputed = false;
-    
-    /**
-     * Sets this Bodie's center.
-     * 
-     * @param x
-     * @param y
-     * @param z
-     */
-    public void setCenter( float x, float y, float z )
-    {
-        this.centerX = x;
-        this.centerY = y;
-        this.centerZ = z;
-    }
-    
-    
-    /**
-     * Sets this Bodie's center.
-     * 
-     * @param x
-     * @param y
-     * @param z
-     */
-    public final void setCenter( Tuple3f center )
-    {
-        setCenter( center.getX(), center.getY(), center.getZ() );
-    }
-    
-    /**
-     * @return the x-coordinate of the center.
-     */
-    public final float getCenterX()
-    {
-        return ( centerX );
-    }
-    
-    /**
-     * @return the y-coordinate of the center.
-     */
-    public final float getCenterY()
-    {
-        return ( centerY );
-    }
-    
-    /**
-     * @return the z-coordinate of the center.
-     */
-    public final float getCenterZ()
-    {
-        return ( centerZ );
-    }
-    
-    public final < T extends Tuple3f > T getCenter( T center )
-    {
-        center.set( centerX, centerY, centerZ );
-        
-        return ( center );
-    }
-    
-    /**
-     * Sets the maximum distance to the Bodie's center (squared).
-     * For a sphere this is the (squared) radius.
-     * 
-     * @param maxCenterDistSquared
-     */
-    protected void setMaxCenterDistanceSquared( float maxCenterDistSquared )
-    {
-        this.maxCenterDistSquared = maxCenterDistSquared;
-        this.distComputed = false;
-    }
-    
-    /**
-     * @return the maximum distance to the Bodie's center (squared).
-     * For a sphere this is the (squared) radius.
-     */
-    public final float getMaxCenterDistanceSquared()
-    {
-        return ( maxCenterDistSquared );
-    }
-    
-    /**
-     * @return the maximum distance to the Bodie's center.
-     * For a sphere this is the radius.
-     */
-    public final float getMaxCenterDistance()
-    {
-        if ( !distComputed )
-        {
-            maxCenterDist = FastMath.sqrt( maxCenterDistSquared );
-            distComputed = true;
-        }
-        
-        return ( maxCenterDist );
-    }
+public abstract class Body implements BodyInterface {
+	protected float centerX, centerY, centerZ;
+	protected float maxCenterDist, maxCenterDistSquared;
+
+	protected boolean distComputed = false;
+
+	/**
+	 * Sets this Bodie's center.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 */
+	public void setCenter(float x, float y, float z) {
+		this.centerX = x;
+		this.centerY = y;
+		this.centerZ = z;
+	}
+
+	/**
+	 * Sets this Bodie's center.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 */
+	public final void setCenter(Tuple3f center) {
+		setCenter(center.getX(), center.getY(), center.getZ());
+	}
+
+	/**
+	 * @return the x-coordinate of the center.
+	 */
+	public final float getCenterX() {
+		return (centerX);
+	}
+
+	/**
+	 * @return the y-coordinate of the center.
+	 */
+	public final float getCenterY() {
+		return (centerY);
+	}
+
+	/**
+	 * @return the z-coordinate of the center.
+	 */
+	public final float getCenterZ() {
+		return (centerZ);
+	}
+
+	public final <T extends Tuple3f> T getCenter(T center) {
+		center.set(centerX, centerY, centerZ);
+
+		return (center);
+	}
+
+	/**
+	 * Sets the maximum distance to the Bodie's center (squared).
+	 * For a sphere this is the (squared) radius.
+	 * 
+	 * @param maxCenterDistSquared
+	 */
+	protected void setMaxCenterDistanceSquared(float maxCenterDistSquared) {
+		this.maxCenterDistSquared = maxCenterDistSquared;
+		this.distComputed = false;
+	}
+
+	/**
+	 * @return the maximum distance to the Bodie's center (squared).
+	 * For a sphere this is the (squared) radius.
+	 */
+	public final float getMaxCenterDistanceSquared() {
+		return (maxCenterDistSquared);
+	}
+
+	/**
+	 * @return the maximum distance to the Bodie's center.
+	 * For a sphere this is the radius.
+	 */
+	public final float getMaxCenterDistance() {
+		if (!distComputed) {
+			maxCenterDist = FastMath.sqrt(maxCenterDistSquared);
+			distComputed = true;
+		}
+
+		return (maxCenterDist);
+	}
 }

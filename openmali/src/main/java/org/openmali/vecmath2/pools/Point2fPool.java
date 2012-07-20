@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Point2f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Point2fPool extends ObjectPool< Point2f >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Point2f newInstance()
-    {
-        return ( new Point2f() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Point2f alloc()
-    {
-        Point2f o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Point2f alloc( float x, float y )
-    {
-        Point2f o = super.alloc();
-        
-        o.set( x, y );
-        
-        return ( o );
-    }
-    
-    public Point2fPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Point2fPool extends ObjectPool<Point2f> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Point2f newInstance() {
+		return (new Point2f());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Point2f alloc() {
+		Point2f o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Point2f alloc(float x, float y) {
+		Point2f o = super.alloc();
+
+		o.set(x, y);
+
+		return (o);
+	}
+
+	public Point2fPool(int initialSize) {
+		super(initialSize);
+	}
 }

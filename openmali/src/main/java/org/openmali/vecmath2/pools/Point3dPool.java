@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Point3d;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Point3dPool extends ObjectPool< Point3d >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Point3d newInstance()
-    {
-        return ( new Point3d() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Point3d alloc()
-    {
-        Point3d o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Point3d alloc( double x, double y, double z )
-    {
-        Point3d o = super.alloc();
-        
-        o.set( x, y, z );
-        
-        return ( o );
-    }
-    
-    public Point3dPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Point3dPool extends ObjectPool<Point3d> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Point3d newInstance() {
+		return (new Point3d());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Point3d alloc() {
+		Point3d o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Point3d alloc(double x, double y, double z) {
+		Point3d o = super.alloc();
+
+		o.set(x, y, z);
+
+		return (o);
+	}
+
+	public Point3dPool(int initialSize) {
+		super(initialSize);
+	}
 }

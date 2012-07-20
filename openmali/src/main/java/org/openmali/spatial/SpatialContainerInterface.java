@@ -52,34 +52,33 @@ import org.openmali.vecmath2.Tuple3f;
  * @author David Yazel
  * @author Marvin Froehlich (aka Qudus) [code cleaning]
  */
-public interface SpatialContainerInterface< T >
-{
-    /**
-     * Inject the specified object into the container.  The handle
-     * returned is necessary to update or remove the object.
-     * @param object Object to be inserted
-     * @return Spatial handle for the injected object
-     */
-    SpatialHandle< T > inject( Tuple3f center, float radius, Object object );
-    
-    SpatialHandle< T > inject( VertexContainer object );
-    
-    /**
-     * Notifies the container that the size or location of the object has been
-     * changed. For some implementations this will be extremly slow and costly,
-     * while others, like SphereTrees this is extremely fast and efficient.
-     * @param handle
-     */
-    void changed( SpatialHandle< T > handle );
-    
-    /**
-     * Remove the object from the spatial container.
-     * @param handle
-     */
-    void remove( SpatialHandle< T > handle );
-    
-    /**
-     * Empties all the entries from the container
-     */
-    void empty();
+public interface SpatialContainerInterface<T> {
+	/**
+	 * Inject the specified object into the container.  The handle
+	 * returned is necessary to update or remove the object.
+	 * @param object Object to be inserted
+	 * @return Spatial handle for the injected object
+	 */
+	SpatialHandle<T> inject(Tuple3f center, float radius, Object object);
+
+	SpatialHandle<T> inject(VertexContainer object);
+
+	/**
+	 * Notifies the container that the size or location of the object has been
+	 * changed. For some implementations this will be extremly slow and costly,
+	 * while others, like SphereTrees this is extremely fast and efficient.
+	 * @param handle
+	 */
+	void changed(SpatialHandle<T> handle);
+
+	/**
+	 * Remove the object from the spatial container.
+	 * @param handle
+	 */
+	void remove(SpatialHandle<T> handle);
+
+	/**
+	 * Empties all the entries from the container
+	 */
+	void empty();
 }

@@ -42,21 +42,20 @@ import org.openmali.vecmath2.Tuple3f;
  * @author David Yazel
  * @author Marvin Froehlich (aka Qudus) [code cleaning]
  */
-public interface FrustumInterface
-{
-    /**
-     * @return constants from Visibility.
-     * Either NOT_VISIBLE, PARTIALLY_VISIBLE or FULLY_VISIBLE is returned.
-     * 
-     * @param p
-     */
-    Visibility getVisibility( Tuple3f p );
-    
-    /**
-     * @return constants from Visibility.
-     * Either NOT_VISIBLE, PARTIALLY_VISIBLE or FULLY_VISIBLE is returned.
-     * 
-     * @param p
-     */
-    Visibility getVisibility( Sphere p );
+public interface FrustumInterface {
+	/**
+	 * @return constants from Visibility.
+	 * Either NOT_VISIBLE, PARTIALLY_VISIBLE or FULLY_VISIBLE is returned.
+	 * 
+	 * @param p
+	 */
+	Visibility getVisibility(Tuple3f p);
+
+	/**
+	 * @return constants from Visibility.
+	 * Either NOT_VISIBLE, PARTIALLY_VISIBLE or FULLY_VISIBLE is returned.
+	 * 
+	 * @param p
+	 */
+	Visibility getVisibility(Sphere p);
 }

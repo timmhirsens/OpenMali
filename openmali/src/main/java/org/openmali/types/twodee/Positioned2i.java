@@ -40,24 +40,23 @@ import org.openmali.vecmath2.Tuple2i;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface Positioned2i extends Positioned2iRO
-{
-    /**
-     * Sets the position.
-     * 
-     * @param left
-     * @param top
-     * 
-     * @return true, if the location actually has changed
-     */
-    public Positioned2i setLocation( int left, int top );
-    
-    /**
-     * Sets the position.
-     * 
-     * @param location
-     * 
-     * @return true, if the location actually has changed
-     */
-    public Positioned2i setLocation( Tuple2i location );
+public interface Positioned2i extends Positioned2iRO {
+	/**
+	 * Sets the position.
+	 * 
+	 * @param left
+	 * @param top
+	 * 
+	 * @return true, if the location actually has changed
+	 */
+	public Positioned2i setLocation(int left, int top);
+
+	/**
+	 * Sets the position.
+	 * 
+	 * @param location
+	 * 
+	 * @return true, if the location actually has changed
+	 */
+	public Positioned2i setLocation(Tuple2i location);
 }

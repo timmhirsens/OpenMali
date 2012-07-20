@@ -44,61 +44,55 @@ import java.util.HashMap;
  * 
  * @author Tom Larkworthy
  */
-public class RadicandBounds
-{
-    public static HashMap<Integer, Rational> upperBounds = new HashMap<Integer, Rational>();
-    public static HashMap<Integer, Rational> lowerBounds = new HashMap<Integer, Rational>();
-    
-    public static final Rational tmp1 = new Rational();
-    public static final Rational tmp2 = new Rational();
-    
-    public static final int PRECISION = 100;
-    
-    public static void getBounds( Integer radicand, Rational upperPassback, Rational lowerPassback )
-    {
-        if ( radicand == 1 )
-        {
-            upperPassback.set( 1, 0, 1 );
-            lowerPassback.set( 1, 0, 1 );
-            return;
-        }
-        
-        assert radicand >= 1;
-        Rational upper = upperBounds.get( radicand );
-        if ( upper == null )
-        {
-            upper = new Rational( (int)( Math.sqrt( radicand ) * PRECISION ) + 1, PRECISION );
-            
-            assert upper.floatValue() > Math.sqrt( radicand );
-            upperBounds.put( radicand, upper );
-        }
-        
-        Rational lower = lowerBounds.get( radicand );
-        if ( lower == null )
-        {
-            lower = new Rational( (int)( Math.sqrt( radicand ) * PRECISION ), PRECISION );
-            
-            assert lower.floatValue() < Math.sqrt( radicand );
-            lowerBounds.put( radicand, lower );
-        }
-        
-        upperPassback.set( upper );
-        lowerPassback.set( lower );
-    }
-    
-    public static void main( String[] args )
-    {
-        Rational upper = new Rational();
-        Rational lower = new Rational();
-        
-        int radicand = 3;
-        System.out.println( "Math.sqrt(radicand) = " + Math.sqrt( radicand ) );
-        
-        getBounds( radicand, upper, lower );
-        
-        System.out.println( "upper = " + upper );
-        System.out.println( "lower = " + lower );
-        System.out.println( "upper = " + upper.floatValue() );
-        System.out.println( "lower = " + lower.floatValue() );
-    }
+public class RadicandBounds {
+	public static HashMap<Integer, Rational> upperBounds = new HashMap<Integer, Rational>();
+	public static HashMap<Integer, Rational> lowerBounds = new HashMap<Integer, Rational>();
+
+	public static final Rational tmp1 = new Rational();
+	public static final Rational tmp2 = new Rational();
+
+	public static final int PRECISION = 100;
+
+	public static void getBounds(Integer radicand, Rational upperPassback, Rational lowerPassback) {
+		if (radicand == 1) {
+			upperPassback.set(1, 0, 1);
+			lowerPassback.set(1, 0, 1);
+			return;
+		}
+
+		assert radicand >= 1;
+		Rational upper = upperBounds.get(radicand);
+		if (upper == null) {
+			upper = new Rational((int) (Math.sqrt(radicand) * PRECISION) + 1, PRECISION);
+
+			assert upper.floatValue() > Math.sqrt(radicand);
+			upperBounds.put(radicand, upper);
+		}
+
+		Rational lower = lowerBounds.get(radicand);
+		if (lower == null) {
+			lower = new Rational((int) (Math.sqrt(radicand) * PRECISION), PRECISION);
+
+			assert lower.floatValue() < Math.sqrt(radicand);
+			lowerBounds.put(radicand, lower);
+		}
+
+		upperPassback.set(upper);
+		lowerPassback.set(lower);
+	}
+
+	public static void main(String[] args) {
+		Rational upper = new Rational();
+		Rational lower = new Rational();
+
+		int radicand = 3;
+		System.out.println("Math.sqrt(radicand) = " + Math.sqrt(radicand));
+
+		getBounds(radicand, upper, lower);
+
+		System.out.println("upper = " + upper);
+		System.out.println("lower = " + lower);
+		System.out.println("upper = " + upper.floatValue());
+		System.out.println("lower = " + lower.floatValue());
+	}
 }

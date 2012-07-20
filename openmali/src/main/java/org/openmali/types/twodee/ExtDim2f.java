@@ -43,86 +43,73 @@ import org.openmali.types.twodee.util.ResizeListener2f;
  * @author Marvin Froehlich (aka Qudus)
  * @author Kevin Finley (aka Horati)
  */
-public class ExtDim2f extends Dim2f implements ExtSized2f
-{
-    private final ArrayList< ResizeListener2f > resizeListeners = new ArrayList< ResizeListener2f >();
-    
-    /**
-     * {@inheritDoc}
-     * Notification takes place in the thread that called this.setSize(...). 
-     */
-    public void addResizeListener( ResizeListener2f listener )
-    {
-        this.resizeListeners.add( listener );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void removeResizeListener( ResizeListener2f listener )
-    {
-        this.resizeListeners.remove( listener );
-    }
-    
-    protected void fireResizeEvent( float oldWidth, float oldHeight, float newWidth, float newHeight )
-    {
-        for ( int i = 0; i < resizeListeners.size(); i++ )
-        {
-            resizeListeners.get( i ).onObjectResized( this, oldWidth, oldHeight, newWidth, newHeight );
-        }
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public ExtDim2f setSize( float width, float height )
-    {
-        final float oldWidth = getWidth();
-        final float oldHeight = getHeight();
-        
-        if ( ( oldWidth != width ) || ( oldHeight != height ) )
-        {
-            super.setSize( width, height );
-            
-            fireResizeEvent( oldWidth, oldHeight, width, height );
-        }
-        /*
-        else
-        {
-            super.setSize( width, height );
-        }
-        */
-        
-        return ( this );
-    }
-    
-    /**
-     * Creates a new 2-dimensional unpositioned rectangle.
-     * 
-     * @param width the rectangle's width
-     * @param height the rectangle's height
-     */
-    public ExtDim2f( float width, float height )
-    {
-        super( width, height );
-    }
-    
-    /**
-     * Creates a new 2-dimensional unpositioned rectangle and copies the template's coordinates.
-     * 
-     * @param template
-     */
-    public ExtDim2f( Sized2fRO template )
-    {
-        this( template.getWidth(), template.getHeight() );
-    }
-    
-    /**
-     * Creates a new 2-dimensional unpositioned rectangle with zero position and size.
-     */
-    public ExtDim2f()
-    {
-        this( 0f, 0f );
-    }
+public class ExtDim2f extends Dim2f implements ExtSized2f {
+	private final ArrayList<ResizeListener2f> resizeListeners = new ArrayList<ResizeListener2f>();
+
+	/**
+	 * {@inheritDoc}
+	 * Notification takes place in the thread that called this.setSize(...). 
+	 */
+	public void addResizeListener(ResizeListener2f listener) {
+		this.resizeListeners.add(listener);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void removeResizeListener(ResizeListener2f listener) {
+		this.resizeListeners.remove(listener);
+	}
+
+	protected void fireResizeEvent(float oldWidth, float oldHeight, float newWidth, float newHeight) {
+		for (int i = 0; i < resizeListeners.size(); i++) {
+			resizeListeners.get(i).onObjectResized(this, oldWidth, oldHeight, newWidth, newHeight);
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public ExtDim2f setSize(float width, float height) {
+		final float oldWidth = getWidth();
+		final float oldHeight = getHeight();
+
+		if ((oldWidth != width) || (oldHeight != height)) {
+			super.setSize(width, height);
+
+			fireResizeEvent(oldWidth, oldHeight, width, height);
+		}
+		/*
+		 * else { super.setSize( width, height ); }
+		 */
+
+		return (this);
+	}
+
+	/**
+	 * Creates a new 2-dimensional unpositioned rectangle.
+	 * 
+	 * @param width the rectangle's width
+	 * @param height the rectangle's height
+	 */
+	public ExtDim2f(float width, float height) {
+		super(width, height);
+	}
+
+	/**
+	 * Creates a new 2-dimensional unpositioned rectangle and copies the template's coordinates.
+	 * 
+	 * @param template
+	 */
+	public ExtDim2f(Sized2fRO template) {
+		this(template.getWidth(), template.getHeight());
+	}
+
+	/**
+	 * Creates a new 2-dimensional unpositioned rectangle with zero position and size.
+	 */
+	public ExtDim2f() {
+		this(0f, 0f);
+	}
 }

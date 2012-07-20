@@ -39,57 +39,56 @@ package org.openmali.vecmath2;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface VectorInterface< T extends TupleNf< T >, V extends TupleNf< ? > > extends TupleInterface< T >
-{
-    /**
-     * @return the squared length of this vector
-     */
-    public float lengthSquared();
-    
-    /**
-     * @return the length of this vector
-     */
-    public float length();
-    
-    /**
-     * Normalizes this vector in place.
-     * 
-     * @return itself
-     */
-    public VectorInterface< T, V > normalize();
-    
-    /**
-     * Sets the value of this vector to the normalization of vector v1.
-     * 
-     * @param vector the un-normalized vector
-     * 
-     * @return itself
-     */
-    public VectorInterface< T, V > normalize( V vector );
-    
-    /**
-     * Sets this vector to be the vector cross product of vectors v1 and v2.
-     * 
-     * @param v1 the first vector
-     * @param v2 the second vector
-     * 
-     * @return itself
-     */
-    public VectorInterface< T, V > cross( V v1, V v2 );
-    
-    /**
-     * Computes the dot product of the this vector and vector v2.
-     * 
-     * @param vector2 the other vector
-     */
-    public float dot( V vector2 );
-    
-    /**
-     * Returns the angle in radians between this vector and the vector
-     * parameter; the return value is constrained to the range [0,PI].
-     * 
-     * @param vector2 the other vector
-     * @return the angle in radians in the range [0,PI]
-     */
-    public float angle( V vector2 );
+public interface VectorInterface<T extends TupleNf<T>, V extends TupleNf<?>> extends TupleInterface<T> {
+	/**
+	 * @return the squared length of this vector
+	 */
+	public float lengthSquared();
+
+	/**
+	 * @return the length of this vector
+	 */
+	public float length();
+
+	/**
+	 * Normalizes this vector in place.
+	 * 
+	 * @return itself
+	 */
+	public VectorInterface<T, V> normalize();
+
+	/**
+	 * Sets the value of this vector to the normalization of vector v1.
+	 * 
+	 * @param vector the un-normalized vector
+	 * 
+	 * @return itself
+	 */
+	public VectorInterface<T, V> normalize(V vector);
+
+	/**
+	 * Sets this vector to be the vector cross product of vectors v1 and v2.
+	 * 
+	 * @param v1 the first vector
+	 * @param v2 the second vector
+	 * 
+	 * @return itself
+	 */
+	public VectorInterface<T, V> cross(V v1, V v2);
+
+	/**
+	 * Computes the dot product of the this vector and vector v2.
+	 * 
+	 * @param vector2 the other vector
+	 */
+	public float dot(V vector2);
+
+	/**
+	 * Returns the angle in radians between this vector and the vector
+	 * parameter; the return value is constrained to the range [0,PI].
+	 * 
+	 * @param vector2 the other vector
+	 * @return the angle in radians in the range [0,PI]
+	 */
+	public float angle(V vector2);
 }

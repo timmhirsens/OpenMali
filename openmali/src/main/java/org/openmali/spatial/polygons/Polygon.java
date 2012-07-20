@@ -38,51 +38,42 @@ package org.openmali.spatial.polygons;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public abstract class Polygon
-{
-    private int features;
-    private int texCoordsSize = 0;
-    
-    public void setFeatures( int features )
-    {
-        this.features = features;
-    }
-    
-    public final int getFeatures()
-    {
-        return ( features );
-    }
-    
-    public void addFeature( int feature )
-    {
-        this.features |= feature;
-    }
-    
-    public void removeFeature( int feature )
-    {
-        this.features &= ~feature;
-    }
-    
-    public boolean hasFeature( int feature )
-    {
-        return ( ( this.features & feature ) != 0 );
-    }
-    
-    public final void setTexCoordsSize( int size )
-    {
-        this.texCoordsSize = size;
-    }
-    
-    public final int getTexCoordsSize()
-    {
-        return ( texCoordsSize );
-    }
-    
-    public Polygon( int features, int texCoordsSize )
-    {
-        //setFeatures( features );
-        //setTexCoordsSize( texCoordsSize );
-        this.features = features;
-        this.texCoordsSize = texCoordsSize;
-    }
+public abstract class Polygon {
+	private int features;
+	private int texCoordsSize = 0;
+
+	public void setFeatures(int features) {
+		this.features = features;
+	}
+
+	public final int getFeatures() {
+		return (features);
+	}
+
+	public void addFeature(int feature) {
+		this.features |= feature;
+	}
+
+	public void removeFeature(int feature) {
+		this.features &= ~feature;
+	}
+
+	public boolean hasFeature(int feature) {
+		return ((this.features & feature) != 0);
+	}
+
+	public final void setTexCoordsSize(int size) {
+		this.texCoordsSize = size;
+	}
+
+	public final int getTexCoordsSize() {
+		return (texCoordsSize);
+	}
+
+	public Polygon(int features, int texCoordsSize) {
+		// setFeatures( features );
+		// setTexCoordsSize( texCoordsSize );
+		this.features = features;
+		this.texCoordsSize = texCoordsSize;
+	}
 }

@@ -38,9 +38,6 @@ package org.openmali.spatial.bounds;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public enum BoundsType
-{
-    SPHERE,
-    AABB,
-    POLYTOPE
+public enum BoundsType {
+	SPHERE, AABB, POLYTOPE
 }

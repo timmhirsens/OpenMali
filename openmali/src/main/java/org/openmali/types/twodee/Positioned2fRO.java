@@ -40,33 +40,32 @@ import org.openmali.vecmath2.Tuple2f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface Positioned2fRO
-{
-    /**
-     * Returns the position.
-     * 
-     * @return the position
-     */
-    public Tuple2f getLocation();
-    
-    /**
-     * Gets the location.
-     * 
-     * @return the position
-     */
-    public <T extends Tuple2f> T getLocation( T location );
-    
-    /**
-     * Returns the left position.
-     * 
-     * @return the left position
-     */
-    public float getLeft();
-    
-    /**
-     * Returns the top position.
-     * 
-     * @return the top position
-     */
-    public float getTop();
+public interface Positioned2fRO {
+	/**
+	 * Returns the position.
+	 * 
+	 * @return the position
+	 */
+	public Tuple2f getLocation();
+
+	/**
+	 * Gets the location.
+	 * 
+	 * @return the position
+	 */
+	public <T extends Tuple2f> T getLocation(T location);
+
+	/**
+	 * Returns the left position.
+	 * 
+	 * @return the left position
+	 */
+	public float getLeft();
+
+	/**
+	 * Returns the top position.
+	 * 
+	 * @return the top position
+	 */
+	public float getTop();
 }

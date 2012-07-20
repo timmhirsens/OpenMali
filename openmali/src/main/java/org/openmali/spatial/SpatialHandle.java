@@ -45,19 +45,18 @@ package org.openmali.spatial;
  * @author David Yazel
  * @author Marvin Froehlich (aka Qudus) [code cleaning]
  */
-public interface SpatialHandle<T>
-{
-    T getObject();
-    
-    /**
-     * Removes the node from its spatial container.
-     */
-    void remove();
-    
-    /**
-     * Recompute the bounds for the object and place it in the spatial
-     * container in the correct place.  This generally causes a removal and
-     * reintegration.
-     */
-    void recompute();
+public interface SpatialHandle<T> {
+	T getObject();
+
+	/**
+	 * Removes the node from its spatial container.
+	 */
+	void remove();
+
+	/**
+	 * Recompute the bounds for the object and place it in the spatial
+	 * container in the correct place.  This generally causes a removal and
+	 * reintegration.
+	 */
+	void recompute();
 }

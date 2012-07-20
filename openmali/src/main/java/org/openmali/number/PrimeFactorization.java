@@ -33,126 +33,107 @@
  */
 package org.openmali.number;
 
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * @author Tom Larkworthy
  */
-public class PrimeFactorization
-{
-    /**
-     * precomputed values
-     */
-    private static List<List<Integer>> precomutedFactorization = new ArrayList<List<Integer>>();
-    
-    static
-    {
-        precomutedFactorization.add( null );//for the zero entry
-        for ( int i = 1; i < 1000; i++ )
-        {
-            precomutedFactorization.add( getPrimeFactorization( i, new ArrayList<Integer>() ) );
-        }
-    }
-    
-    /**
-     * returns the prime factors for the argument. The resultant list is in order, smallest primes first.
-     * passback should be emptied before calling this method
-     * e.g. factorization of 12 is 2*2*3
-     * e.g. factorization of 1 is 1 (special case, one not normally returned)
-     */
-    public static List<Integer> getPrimeFactorization( int integer, List<Integer> passback )
-    {
-        assert integer > 0;
-        if ( integer == 1 )
-        {
-            passback.add( 1 );
-            return ( passback );
-        }
-        
-        if ( precomutedFactorization.size() < integer )
-        {
-            passback.addAll( precomutedFactorization.get( integer ) );
-            return ( passback );
-        }
-        
-        recursiveFactor( integer, passback );
-        
-        Collections.sort( passback );
-        
-        return ( passback );
-    }
-    
-    private static void recursiveFactor( int integer, List<Integer> passback )
-    {
-        if ( integer < precomutedFactorization.size() )
-        {
-            passback.addAll( precomutedFactorization.get( integer ) );
-            return;
-        }
-        
-        int smallFactor = 1;
-        int largeFactor = integer;
-        for ( int i = 2; i <= Math.sqrt( integer ); i++ )
-        {
-            if ( integer % i == 0 )
-            {//no remainder on division, we found a factor, note i = 1 would find this too
-                smallFactor = i;
-                largeFactor = integer / i;
-            }
-        }
-        
-        if ( largeFactor == integer )
-        {
-            passback.add( largeFactor );
-        }
-        else
-        {
-            
-            recursiveFactor( largeFactor, passback );
-            recursiveFactor( smallFactor, passback );
-        }
-    }
-    
-    public static boolean isPrime( int number )
-    {
-        ArrayList<Integer> tmp = new ArrayList<Integer>();
-        getPrimeFactorization( number, tmp );
-        if ( tmp.size() == 1 )
-            return ( true );
-        
-        return ( false );
-    }
-    
-    public static void main( String[] args )
-    {
-        ArrayList<Integer> list = new ArrayList<Integer>();
-        list.add( 2 );
-        list.add( 2 );
-        list.add( 3 );
-        
-        ArrayList<Integer> tst = new ArrayList<Integer>();
-        getPrimeFactorization( 12, tst );
-        System.out.println( "tst = " + tst );
-        assert tst.equals( list );
-        
-        for ( int i = 1; i < 20; i++ )
-        {
-            if ( isPrime( i ) )
-            {
-                System.out.println( i + " is prime" );
-            }
-            else
-            {
-                System.out.println( i + " is not prime" );
-            }
-        }
-        
-        for ( int i = 1; i < 20; i++ )
-        {
-            tst.clear();
-            System.out.println( i + " = " + getPrimeFactorization( i, tst ) );
-        }
-    }
+public class PrimeFactorization {
+	/**
+	 * precomputed values
+	 */
+	private static List<List<Integer>> precomutedFactorization = new ArrayList<List<Integer>>();
+
+	static {
+		precomutedFactorization.add(null);// for the zero entry
+		for (int i = 1; i < 1000; i++) {
+			precomutedFactorization.add(getPrimeFactorization(i, new ArrayList<Integer>()));
+		}
+	}
+
+	/**
+	 * returns the prime factors for the argument. The resultant list is in order, smallest primes first.
+	 * passback should be emptied before calling this method
+	 * e.g. factorization of 12 is 2*2*3
+	 * e.g. factorization of 1 is 1 (special case, one not normally returned)
+	 */
+	public static List<Integer> getPrimeFactorization(int integer, List<Integer> passback) {
+		assert integer > 0;
+		if (integer == 1) {
+			passback.add(1);
+			return (passback);
+		}
+
+		if (precomutedFactorization.size() < integer) {
+			passback.addAll(precomutedFactorization.get(integer));
+			return (passback);
+		}
+
+		recursiveFactor(integer, passback);
+
+		Collections.sort(passback);
+
+		return (passback);
+	}
+
+	private static void recursiveFactor(int integer, List<Integer> passback) {
+		if (integer < precomutedFactorization.size()) {
+			passback.addAll(precomutedFactorization.get(integer));
+			return;
+		}
+
+		int smallFactor = 1;
+		int largeFactor = integer;
+		for (int i = 2; i <= Math.sqrt(integer); i++) {
+			if (integer % i == 0) {// no remainder on division, we found a
+									// factor, note i = 1 would find this too
+				smallFactor = i;
+				largeFactor = integer / i;
+			}
+		}
+
+		if (largeFactor == integer) {
+			passback.add(largeFactor);
+		} else {
+
+			recursiveFactor(largeFactor, passback);
+			recursiveFactor(smallFactor, passback);
+		}
+	}
+
+	public static boolean isPrime(int number) {
+		ArrayList<Integer> tmp = new ArrayList<Integer>();
+		getPrimeFactorization(number, tmp);
+		if (tmp.size() == 1)
+			return (true);
+
+		return (false);
+	}
+
+	public static void main(String[] args) {
+		ArrayList<Integer> list = new ArrayList<Integer>();
+		list.add(2);
+		list.add(2);
+		list.add(3);
+
+		ArrayList<Integer> tst = new ArrayList<Integer>();
+		getPrimeFactorization(12, tst);
+		System.out.println("tst = " + tst);
+		assert tst.equals(list);
+
+		for (int i = 1; i < 20; i++) {
+			if (isPrime(i)) {
+				System.out.println(i + " is prime");
+			} else {
+				System.out.println(i + " is not prime");
+			}
+		}
+
+		for (int i = 1; i < 20; i++) {
+			tst.clear();
+			System.out.println(i + " = " + getPrimeFactorization(i, tst));
+		}
+	}
 }

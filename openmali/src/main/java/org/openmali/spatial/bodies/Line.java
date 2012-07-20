@@ -46,199 +46,179 @@ import org.openmali.vecmath2.Vector3f;
  * @author cas
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Line
-{
-    private Point3f origin;
-    private Vector3f direction;
-    
-    /**
-     * @return the line's origin
-     */
-    public Point3f getOrigin()
-    {
-        return ( origin );
-    }
-    
-    /**
-     * Sets the line's origin.
-     * 
-     * @param x
-     * @param y
-     * @param z
-     */
-    public void setOrigin( float x, float y, float z )
-    {
-        this.origin.setX( x );
-        this.origin.setY( y );
-        this.origin.setZ( z );
-    }
-    
-    /**
-     * Sets the line's origin.
-     * 
-     * @param origin new origin
-     */
-    public void setOrigin( Tuple3f origin )
-    {
-        setOrigin( origin.getX(), origin.getY(), origin.getZ() );
-    }
-    
-    /**
-     * @return the line's direction
-     */
-    public Vector3f getDirection()
-    {
-        return ( direction );
-    }
-    
-    /**
-     * Sets the line's direction.
-     * 
-     * @param x
-     * @param y
-     * @param z
-     */
-    public void setDirection( float x, float y, float z )
-    {
-        this.direction.setX( x );
-        this.direction.setY( y );
-        this.direction.setZ( z );
-    }
-    
-    /**
-     * Sets the line's direction.
-     * 
-     * @param direction new direction
-     */
-    public void setDirection( Tuple3f direction )
-    {
-        setDirection( direction.getX(), direction.getY(), direction.getZ() );
-    }
-    
-    /**
-     * @return the line's length
-     * <i>same as length()</i>
-     */
-    public float getLength()
-    {
-        return ( direction.length() );
-    }
-    
-    /**
-     * @return the line's length
-     * <i>same as getLength()</i>
-     */
-    public float length()
-    {
-        return ( direction.length() );
-    }
-    
-    /**
-     * Creates a clone.
-     */
-    @Override
-    public Line clone()
-    {
-        return ( new Line( this ) );
-    }
-    
-    /**
-     * Sets this line to the passed parameters.
-     * 
-     * @param origin the new origin point
-     * @param direction the new direction vector
-     */
-    public void set( Point3f origin, Vector3f direction )
-    {
-        this.origin.set( origin );
-        this.direction.set( direction );
-    }
-    
-    /**
-     * Sets this line to be equal to the passed one.
-     */
-    public void set( Line line )
-    {
-        set( line.getOrigin(), line.getDirection() );
-    }
-    
-    /**
-     * Checks if the given line equals this one.
-     * 
-     * @param line the ray to test for equality
-     */
-    public boolean equals( Line line )
-    {
-        return ( this.origin.equals( line.origin ) && this.direction.equals( line.direction ) );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public boolean equals( Object o )
-    {
-        if ( o instanceof Line )
-            return ( equals( (Line)o ) );
-        
-        return ( false );
-    }
-    
-    /**
-     * @return a String representation of this ray
-     */
-    @Override
-    public String toString()
-    {
-        return ( this.getClass().getName() + " { " +
-                "origin=(" + origin.getX() + ", " + origin.getY() + ", " + origin.getZ() + "), " +
-                "direction=(" + direction.getX() + ", " + direction.getY() + ", " + direction.getZ() + ") }");
-    }
-    
-    /**
-     * Creates a new Line.
-     * 
-     * @param origX
-     * @param origY
-     * @param origZ
-     * @param direcX
-     * @param direcY
-     * @param direcZ
-     */
-    public Line( float origX, float origY, float origZ, float direcX, float direcY, float direcZ )
-    {
-        super();
-        
-        this.origin = new Point3f( origX, origY, origZ );
-        this.direction = new Vector3f( direcX, direcY, direcZ );
-    }
-    
-    /**
-     * Creates a new Line.
-     * 
-     * @param origin the new origin point
-     * @param direction the new direction vector
-     */
-    public Line( Point3f origin, Vector3f direction )
-    {
-        this( origin.getX(), origin.getY(), origin.getZ(), direction.getX(), direction.getY(), direction.getZ() );
-    }
-    
-    /**
-     * Creates a new Line.
-     */
-    public Line()
-    {
-        this( 0f, 0f, 0f, 0f, 0f, 0f );
-    }
-    
-    /**
-     * Clone constructor.
-     */
-    public Line( Line template )
-    {
-        this();
-        
-        this.set( template );
-    }
+public class Line {
+	private Point3f origin;
+	private Vector3f direction;
+
+	/**
+	 * @return the line's origin
+	 */
+	public Point3f getOrigin() {
+		return (origin);
+	}
+
+	/**
+	 * Sets the line's origin.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 */
+	public void setOrigin(float x, float y, float z) {
+		this.origin.setX(x);
+		this.origin.setY(y);
+		this.origin.setZ(z);
+	}
+
+	/**
+	 * Sets the line's origin.
+	 * 
+	 * @param origin new origin
+	 */
+	public void setOrigin(Tuple3f origin) {
+		setOrigin(origin.getX(), origin.getY(), origin.getZ());
+	}
+
+	/**
+	 * @return the line's direction
+	 */
+	public Vector3f getDirection() {
+		return (direction);
+	}
+
+	/**
+	 * Sets the line's direction.
+	 * 
+	 * @param x
+	 * @param y
+	 * @param z
+	 */
+	public void setDirection(float x, float y, float z) {
+		this.direction.setX(x);
+		this.direction.setY(y);
+		this.direction.setZ(z);
+	}
+
+	/**
+	 * Sets the line's direction.
+	 * 
+	 * @param direction new direction
+	 */
+	public void setDirection(Tuple3f direction) {
+		setDirection(direction.getX(), direction.getY(), direction.getZ());
+	}
+
+	/**
+	 * @return the line's length
+	 * <i>same as length()</i>
+	 */
+	public float getLength() {
+		return (direction.length());
+	}
+
+	/**
+	 * @return the line's length
+	 * <i>same as getLength()</i>
+	 */
+	public float length() {
+		return (direction.length());
+	}
+
+	/**
+	 * Creates a clone.
+	 */
+	@Override
+	public Line clone() {
+		return (new Line(this));
+	}
+
+	/**
+	 * Sets this line to the passed parameters.
+	 * 
+	 * @param origin the new origin point
+	 * @param direction the new direction vector
+	 */
+	public void set(Point3f origin, Vector3f direction) {
+		this.origin.set(origin);
+		this.direction.set(direction);
+	}
+
+	/**
+	 * Sets this line to be equal to the passed one.
+	 */
+	public void set(Line line) {
+		set(line.getOrigin(), line.getDirection());
+	}
+
+	/**
+	 * Checks if the given line equals this one.
+	 * 
+	 * @param line the ray to test for equality
+	 */
+	public boolean equals(Line line) {
+		return (this.origin.equals(line.origin) && this.direction.equals(line.direction));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public boolean equals(Object o) {
+		if (o instanceof Line)
+			return (equals((Line) o));
+
+		return (false);
+	}
+
+	/**
+	 * @return a String representation of this ray
+	 */
+	@Override
+	public String toString() {
+		return (this.getClass().getName() + " { " + "origin=(" + origin.getX() + ", " + origin.getY() + ", " + origin.getZ() + "), " + "direction=(" + direction.getX() + ", " + direction.getY()
+				+ ", " + direction.getZ() + ") }");
+	}
+
+	/**
+	 * Creates a new Line.
+	 * 
+	 * @param origX
+	 * @param origY
+	 * @param origZ
+	 * @param direcX
+	 * @param direcY
+	 * @param direcZ
+	 */
+	public Line(float origX, float origY, float origZ, float direcX, float direcY, float direcZ) {
+		super();
+
+		this.origin = new Point3f(origX, origY, origZ);
+		this.direction = new Vector3f(direcX, direcY, direcZ);
+	}
+
+	/**
+	 * Creates a new Line.
+	 * 
+	 * @param origin the new origin point
+	 * @param direction the new direction vector
+	 */
+	public Line(Point3f origin, Vector3f direction) {
+		this(origin.getX(), origin.getY(), origin.getZ(), direction.getX(), direction.getY(), direction.getZ());
+	}
+
+	/**
+	 * Creates a new Line.
+	 */
+	public Line() {
+		this(0f, 0f, 0f, 0f, 0f, 0f);
+	}
+
+	/**
+	 * Clone constructor.
+	 */
+	public Line(Line template) {
+		this();
+
+		this.set(template);
+	}
 }

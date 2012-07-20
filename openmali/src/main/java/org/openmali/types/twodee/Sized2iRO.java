@@ -38,21 +38,20 @@ package org.openmali.types.twodee;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface Sized2iRO
-{
-    /**
-     * @return the width
-     */
-    public int getWidth();
-    
-    /**
-     * @return the height
-     */
-    public int getHeight();
-    
-    /**
-     * @return the aspect ratio calculated by (getWidth() / getHeight()).
-     *         If getHeight() is 0, 0 is returned.
-     */
-    public float getAspect();
+public interface Sized2iRO {
+	/**
+	 * @return the width
+	 */
+	public int getWidth();
+
+	/**
+	 * @return the height
+	 */
+	public int getHeight();
+
+	/**
+	 * @return the aspect ratio calculated by (getWidth() / getHeight()).
+	 *         If getHeight() is 0, 0 is returned.
+	 */
+	public float getAspect();
 }

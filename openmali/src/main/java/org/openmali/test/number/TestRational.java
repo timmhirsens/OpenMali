@@ -33,91 +33,89 @@
  */
 package org.openmali.test.number;
 
-import org.openmali.number.Rational;
-import org.openmali.FastMath;
-
 import java.util.Random;
+
+import org.openmali.FastMath;
+import org.openmali.number.Rational;
 
 /**
  */
 public class TestRational extends TestCase {
-    static Random rnd = new Random();
+	static Random rnd = new Random();
 
-    static int ITERATIONS = 1000;
+	static int ITERATIONS = 1000;
 
-    public static Rational randomRational(){
-        return new Rational(rnd.nextInt(20)-10, rnd.nextInt(9)+1);
-    }
+	public static Rational randomRational() {
+		return new Rational(rnd.nextInt(20) - 10, rnd.nextInt(9) + 1);
+	}
 
+	public void testAdd() {
+		for (int t = 0; t < ITERATIONS; t++) {
+			Rational a = randomRational();
+			Rational b = randomRational();
 
+			float validation = a.floatValue() + b.floatValue();
 
-    public void testAdd(){
-        for(int t=0;t<ITERATIONS;t++){
-            Rational a = randomRational();
-            Rational b = randomRational();
+			Rational ans = Rational.add(a, b, a);
 
-            float validation = a.floatValue() + b.floatValue();
+			assertTrue(FastMath.epsilonEquals(validation, ans.floatValue(), .0001f));
 
-            Rational ans = Rational.add(a,b,a);
+		}
+	}
 
-            assertTrue(FastMath.epsilonEquals(validation,ans.floatValue(),.0001f));
+	public void testMul() {
+		for (int t = 0; t < ITERATIONS; t++) {
+			Rational a = randomRational();
+			Rational b = randomRational();
 
-        }
-    }
+			float validation = a.floatValue() * b.floatValue();
 
-    public void testMul(){
-        for(int t=0;t<ITERATIONS;t++){
-            Rational a = randomRational();
-            Rational b = randomRational();
+			Rational ans = Rational.mul(a, b, a);
 
-            float validation = a.floatValue() * b.floatValue();
+			assertTrue(FastMath.epsilonEquals(validation, ans.floatValue(), .0001f));
 
-            Rational ans = Rational.mul(a,b,a);
+		}
+	}
 
-            assertTrue(FastMath.epsilonEquals(validation,ans.floatValue(),.0001f));
+	public void testSub() {
+		for (int t = 0; t < ITERATIONS; t++) {
+			Rational a = randomRational();
+			Rational b = randomRational();
 
-        }
-    }
+			float validation = a.floatValue() - b.floatValue();
 
-    public void testSub(){
-        for(int t=0;t<ITERATIONS;t++){
-            Rational a = randomRational();
-            Rational b = randomRational();
+			Rational ans = Rational.sub(a, b, a);
 
-            float validation = a.floatValue() - b.floatValue();
+			assertTrue(FastMath.epsilonEquals(validation, ans.floatValue(), .0001f));
 
-            Rational ans = Rational.sub(a,b,a);
+		}
+	}
 
-            assertTrue(FastMath.epsilonEquals(validation,ans.floatValue(),.0001f));
+	public void testEquals() {
+		for (int t = 0; t < ITERATIONS; t++) {
+			Rational a = randomRational();
+			Rational b = a.clone();
+			Rational op = randomRational();
 
-        }
-    }
+			Rational.sub(b, op, b);
+			Rational.add(b, op, b);
 
-    public void testEquals(){
-        for(int t=0;t<ITERATIONS;t++){
-            Rational a = randomRational();
-            Rational b = a.clone();
-            Rational op = randomRational();
+			System.out.println(a);
+			System.out.println(b);
 
-            Rational.sub(b,op,b);
-            Rational.add(b,op,b);
+			assertTrue(a.equals(b));
 
-            System.out.println(a);
-            System.out.println(b);
+		}
+	}
 
-            assertTrue(a.equals(b));
+	public void testParse() {
+		for (int t = 0; t < ITERATIONS; t++) {
+			Rational a = randomRational();
 
-        }
-    }
+			Rational ta = Rational.parseRational(a.toString());
 
-    public void testParse(){
-        for(int t=0;t<ITERATIONS;t++){
-            Rational a = randomRational();
-
-            Rational ta = Rational.parseRational(a.toString());
-
-            System.out.println("ta = " + ta);
-            assertTrue(a.equals(ta));
-        }
-    }
+			System.out.println("ta = " + ta);
+			assertTrue(a.equals(ta));
+		}
+	}
 }

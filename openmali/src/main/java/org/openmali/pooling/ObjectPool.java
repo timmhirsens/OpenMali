@@ -43,47 +43,41 @@ import java.util.ArrayList;
  * @author David Yazel
  * @author Marvin Froehlich (aka Qudus)
  */
-public abstract class ObjectPool<T>
-{
-    private final ArrayList<T> objects;
-    private int n;
-    
-    public int getSize()
-    {
-        return ( n );
-    }
-    
-    /**
-     * Creates a new instance of a pooled object.
-     * 
-     * @return the new object instance
-     */
-    protected abstract T newInstance();
-    
-    public T alloc()
-    {
-        if ( n > 0 )
-        {
-            T o = objects.remove( --n );
-            
-            return ( o );
-        }
-        
-        return ( newInstance() );
-    }
-    
-    public void free( T o )
-    {
-        if ( o == null )
-            return;
-        
-        objects.add( o );
-        n++;
-    }
-    
-    public ObjectPool( int initialSize )
-    {
-        this.objects = new ArrayList<T>( initialSize );
-        this.n = 0;
-    }
+public abstract class ObjectPool<T> {
+	private final ArrayList<T> objects;
+	private int n;
+
+	public int getSize() {
+		return (n);
+	}
+
+	/**
+	 * Creates a new instance of a pooled object.
+	 * 
+	 * @return the new object instance
+	 */
+	protected abstract T newInstance();
+
+	public T alloc() {
+		if (n > 0) {
+			T o = objects.remove(--n);
+
+			return (o);
+		}
+
+		return (newInstance());
+	}
+
+	public void free(T o) {
+		if (o == null)
+			return;
+
+		objects.add(o);
+		n++;
+	}
+
+	public ObjectPool(int initialSize) {
+		this.objects = new ArrayList<T>(initialSize);
+		this.n = 0;
+	}
 }

@@ -41,50 +41,44 @@ import org.openmali.vecmath2.Colord;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class ColordPool extends ObjectPool< Colord >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Colord newInstance()
-    {
-        return ( new Colord() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Colord alloc()
-    {
-        Colord o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Colord alloc( double r, double g, double b )
-    {
-        Colord o = super.alloc();
-        
-        o.set( r, g, b );
-        
-        return ( o );
-    }
-    
-    public Colord alloc( double r, double g, double b, double a )
-    {
-        Colord o = super.alloc();
-        
-        o.set( r, g, b, a );
-        
-        return ( o );
-    }
-    
-    public ColordPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class ColordPool extends ObjectPool<Colord> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Colord newInstance() {
+		return (new Colord());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Colord alloc() {
+		Colord o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Colord alloc(double r, double g, double b) {
+		Colord o = super.alloc();
+
+		o.set(r, g, b);
+
+		return (o);
+	}
+
+	public Colord alloc(double r, double g, double b, double a) {
+		Colord o = super.alloc();
+
+		o.set(r, g, b, a);
+
+		return (o);
+	}
+
+	public ColordPool(int initialSize) {
+		super(initialSize);
+	}
 }

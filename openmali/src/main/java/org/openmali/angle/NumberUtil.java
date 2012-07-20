@@ -47,11 +47,11 @@ public class NumberUtil {
 	 */
 	public static float round(float f, int i) {
 
-		int x = (int)(f * i);
-		float f2 = (float)x / (float)i;
-		
+		int x = (int) (f * i);
+		float f2 = (float) x / (float) i;
+
 		return f2;
-		
+
 	}
-	
+
 }

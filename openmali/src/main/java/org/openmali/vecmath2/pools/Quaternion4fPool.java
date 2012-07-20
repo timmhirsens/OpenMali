@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Quaternion4f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Quaternion4fPool extends ObjectPool< Quaternion4f >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Quaternion4f newInstance()
-    {
-        return ( new Quaternion4f() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Quaternion4f alloc()
-    {
-        Quaternion4f o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Quaternion4f alloc( float a, float b, float c, float d )
-    {
-        Quaternion4f o = super.alloc();
-        
-        o.set( a, b, c, d );
-        
-        return ( o );
-    }
-    
-    public Quaternion4fPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Quaternion4fPool extends ObjectPool<Quaternion4f> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Quaternion4f newInstance() {
+		return (new Quaternion4f());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Quaternion4f alloc() {
+		Quaternion4f o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Quaternion4f alloc(float a, float b, float c, float d) {
+		Quaternion4f o = super.alloc();
+
+		o.set(a, b, c, d);
+
+		return (o);
+	}
+
+	public Quaternion4fPool(int initialSize) {
+		super(initialSize);
+	}
 }

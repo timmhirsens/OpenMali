@@ -43,372 +43,339 @@ import org.openmali.vecmath2.pools.TexCoord1fPool;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class TexCoord1f extends TexCoordf< TexCoord1f > implements Externalizable
-{
-    private static final long serialVersionUID = -8577168782997168074L;
-    
-    //private static final TexCoord1fPool POOL = new TexCoord1fPool( 32 );
-    private static final ThreadLocal<TexCoord1fPool> POOL = new ThreadLocal<TexCoord1fPool>()
-    {
-        @Override
-        protected TexCoord1fPool initialValue()
-        {
-            return ( new TexCoord1fPool( 128 ) );
-        }
-    };
-    
-    /**
-     * Sets all values of this texCoord to the specified ones.
-     * 
-     * @param s the s element to use
-     * 
-     * @return itself
-     */
-    public final TexCoord1f set( float s )
-    {
-        setS( s );
-        
-        return ( this );
-    }
-    
-    /**
-     * Sets the S (1st) texCoord component.
-     * 
-     * @param s
-     * 
-     * @return itself
-     */
-    public final TexCoord1f setS( float s )
-    {
-        this.values[ roTrick + 0 ] = s;
-        
-        this.isDirty = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * @return the S (1st) texCoord component.
-     */
-    public final float getS()
-    {
-        return ( values[ 0 ] );
-    }
-    
-    /**
-     * Sets the S (1st) texCoord component.
-     * 
-     * @param s
-     * 
-     * @return itself
-     */
-    public final TexCoord1f s( float s )
-    {
-        this.values[ roTrick + 0 ] = s;
-        
-        this.isDirty = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * @return the S (1st) texCoord component.
-     */
-    public final float s()
-    {
-        return ( values[ 0 ] );
-    }
-    
-    /**
-     * Adds v to this texCoord's S value.
-     * 
-     * @param v
-     * 
-     * @return itself
-     */
-    public final TexCoord1f addS( float v )
-    {
-        this.values[ roTrick + 0 ] += v;
-        
-        this.isDirty = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * Subtracts v from this texCoord's S value.
-     * 
-     * @param v
-     * 
-     * @return itself
-     */
-    public final TexCoord1f subS( float v )
-    {
-        this.values[ roTrick + 0 ] -= v;
-        
-        this.isDirty = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * Multiplies this texCoord's S value with v.
-     * 
-     * @param v
-     * 
-     * @return itself
-     */
-    public final TexCoord1f mulS( float v )
-    {
-        this.values[ roTrick + 0 ] *= v;
-        
-        this.isDirty = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * Multiplies this texCoord's values with vs.
-     * 
-     * @param vs
-     * 
-     * @return itself
-     */
-    public final TexCoord1f mul( float vs )
-    {
-        this.values[ roTrick + 0 ] *= vs;
-        
-        this.isDirty = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * Divides this texCoord's S value by v.
-     * 
-     * @param v
-     * 
-     * @return itself
-     */
-    public final TexCoord1f divS( float v )
-    {
-        this.values[ roTrick + 0 ] /= v;
-        
-        this.isDirty = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * Divides this texCoord's values by vs.
-     * 
-     * @param vs
-     * 
-     * @return itself
-     */
-    public final TexCoord1f div( float vs )
-    {
-        this.values[ roTrick + 0 ] /= vs;
-        
-        this.isDirty = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * Adds the given parameters to this tuple's values.
-     * 
-     * @param s
-     * 
-     * @return itself
-     */
-    public final TexCoord1f add( float s )
-    {
-        this.values[ roTrick + 0 ] += s;
-        
-        this.isDirty = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * Subtracts the given parameters from this tuple's values.
-     * 
-     * @param s
-     * 
-     * @return itself
-     */
-    public final TexCoord1f sub( float s )
-    {
-        this.values[ roTrick + 0 ] -= s;
-        
-        this.isDirty = true;
-        
-        return ( this );
-    }
-    
-    /**
-     * Returns true if the Object t1 is of type Tuple3f and all of the
-     * data members of t1 are equal to the corresponding data members in
-     * this Tuple3f.
-     * 
-     * @param o  the Object with which the comparison is made
-     * @return  true or false
-     */ 
-    @Override
-    public boolean equals( Object o )
-    {
-        return ( ( o != null ) && ( ( o instanceof TexCoord1f ) && equals( (TexCoord1f)o ) ) );
-    }
-    
-    /**
-     * Creates and returns a copy of this object.
-     * 
-     * @return a clone of this instance.
-     * @exception OutOfMemoryError if there is not enough memory.
-     * @see java.lang.Cloneable
-     */
-    @Override
-    public TexCoord1f clone()
-    {
-        return ( new TexCoord1f( this ) );
-    }
-    
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     * 
-     * @param readOnly
-     * @param s the S element to use
-     */
-    protected TexCoord1f( boolean readOnly, float s )
-    {
-        super( readOnly, new float[] { s } );
-    }
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     * 
-     * @param readOnly
-     * @param values the values array (must be at least size 1)
-     */
-    protected TexCoord1f( boolean readOnly, float[] values )
-    {
-        this( readOnly, values[ 0 ] );
-    }
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     * 
-     * @param readOnly
-     * @param texCoord the TexCoordf to copy the values from
-     */
-    protected TexCoord1f( boolean readOnly, TexCoordf< ? > texCoord )
-    {
-        super( readOnly, newArray( texCoord.values, 1 ) );
-    }
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     * 
-     * @param readOnly
-     */
-    protected TexCoord1f( boolean readOnly )
-    {
-        this( readOnly, 0f );
-    }
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     * 
-     * @param s the S element to use
-     */
-    public TexCoord1f( float s )
-    {
-        this( false, s );
-    }
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     * 
-     * @param values the values array (must be at least size 1)
-     */
-    public TexCoord1f( float[] values )
-    {
-        this( false, values );
-    }
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     * 
-     * @param texCoord the TexCoordf to copy the values from
-     */
-    public TexCoord1f( TexCoordf< ? > texCoord )
-    {
-        this( false, texCoord );
-    }
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     */
-    public TexCoord1f()
-    {
-        this( false );
-    }
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     * 
-     * @param s the S element to use
-     */
-    public static final TexCoord1f newReadOnly( float s )
-    {
-        return ( new TexCoord1f( true, s ) );
-    }
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     * 
-     * @param values the values array (must be at least size 1)
-     */
-    public static final TexCoord1f newReadOnly( float[] values )
-    {
-        return ( new TexCoord1f( true, values ) );
-    }
-    
-    /**
-     * Creates a new TexCoord1f instance.
-     * 
-     * @param texCoord the TexCoordf to copy the values from
-     */
-    public static final TexCoord1f newReadOnly( TexCoordf< ? > texCoord )
-    {
-        return ( new TexCoord1f( true, texCoord ) );
-    }
-    
-    /**
-     * Allocates an TexCoord1f instance from the pool.
-     */
-    public static TexCoord1f fromPool()
-    {
-        return ( POOL.get().alloc() );
-    }
-    
-    /**
-     * Allocates an TexCoord1f instance from the pool.
-     */
-    public static TexCoord1f fromPool( float s )
-    {
-        return ( POOL.get().alloc( s ) );
-    }
-    
-    /**
-     * Stores the given TexCoord1f instance in the pool.
-     * 
-     * @param o
-     */
-    public static void toPool( TexCoord1f o )
-    {
-        POOL.get().free( o );
-    }
+public class TexCoord1f extends TexCoordf<TexCoord1f> implements Externalizable {
+	private static final long serialVersionUID = -8577168782997168074L;
+
+	// private static final TexCoord1fPool POOL = new TexCoord1fPool( 32 );
+	private static final ThreadLocal<TexCoord1fPool> POOL = new ThreadLocal<TexCoord1fPool>() {
+		@Override
+		protected TexCoord1fPool initialValue() {
+			return (new TexCoord1fPool(128));
+		}
+	};
+
+	/**
+	 * Sets all values of this texCoord to the specified ones.
+	 * 
+	 * @param s the s element to use
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f set(float s) {
+		setS(s);
+
+		return (this);
+	}
+
+	/**
+	 * Sets the S (1st) texCoord component.
+	 * 
+	 * @param s
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f setS(float s) {
+		this.values[roTrick + 0] = s;
+
+		this.isDirty = true;
+
+		return (this);
+	}
+
+	/**
+	 * @return the S (1st) texCoord component.
+	 */
+	public final float getS() {
+		return (values[0]);
+	}
+
+	/**
+	 * Sets the S (1st) texCoord component.
+	 * 
+	 * @param s
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f s(float s) {
+		this.values[roTrick + 0] = s;
+
+		this.isDirty = true;
+
+		return (this);
+	}
+
+	/**
+	 * @return the S (1st) texCoord component.
+	 */
+	public final float s() {
+		return (values[0]);
+	}
+
+	/**
+	 * Adds v to this texCoord's S value.
+	 * 
+	 * @param v
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f addS(float v) {
+		this.values[roTrick + 0] += v;
+
+		this.isDirty = true;
+
+		return (this);
+	}
+
+	/**
+	 * Subtracts v from this texCoord's S value.
+	 * 
+	 * @param v
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f subS(float v) {
+		this.values[roTrick + 0] -= v;
+
+		this.isDirty = true;
+
+		return (this);
+	}
+
+	/**
+	 * Multiplies this texCoord's S value with v.
+	 * 
+	 * @param v
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f mulS(float v) {
+		this.values[roTrick + 0] *= v;
+
+		this.isDirty = true;
+
+		return (this);
+	}
+
+	/**
+	 * Multiplies this texCoord's values with vs.
+	 * 
+	 * @param vs
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f mul(float vs) {
+		this.values[roTrick + 0] *= vs;
+
+		this.isDirty = true;
+
+		return (this);
+	}
+
+	/**
+	 * Divides this texCoord's S value by v.
+	 * 
+	 * @param v
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f divS(float v) {
+		this.values[roTrick + 0] /= v;
+
+		this.isDirty = true;
+
+		return (this);
+	}
+
+	/**
+	 * Divides this texCoord's values by vs.
+	 * 
+	 * @param vs
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f div(float vs) {
+		this.values[roTrick + 0] /= vs;
+
+		this.isDirty = true;
+
+		return (this);
+	}
+
+	/**
+	 * Adds the given parameters to this tuple's values.
+	 * 
+	 * @param s
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f add(float s) {
+		this.values[roTrick + 0] += s;
+
+		this.isDirty = true;
+
+		return (this);
+	}
+
+	/**
+	 * Subtracts the given parameters from this tuple's values.
+	 * 
+	 * @param s
+	 * 
+	 * @return itself
+	 */
+	public final TexCoord1f sub(float s) {
+		this.values[roTrick + 0] -= s;
+
+		this.isDirty = true;
+
+		return (this);
+	}
+
+	/**
+	 * Returns true if the Object t1 is of type Tuple3f and all of the
+	 * data members of t1 are equal to the corresponding data members in
+	 * this Tuple3f.
+	 * 
+	 * @param o  the Object with which the comparison is made
+	 * @return  true or false
+	 */
+	@Override
+	public boolean equals(Object o) {
+		return ((o != null) && ((o instanceof TexCoord1f) && equals((TexCoord1f) o)));
+	}
+
+	/**
+	 * Creates and returns a copy of this object.
+	 * 
+	 * @return a clone of this instance.
+	 * @exception OutOfMemoryError if there is not enough memory.
+	 * @see java.lang.Cloneable
+	 */
+	@Override
+	public TexCoord1f clone() {
+		return (new TexCoord1f(this));
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 * 
+	 * @param readOnly
+	 * @param s the S element to use
+	 */
+	protected TexCoord1f(boolean readOnly, float s) {
+		super(readOnly, new float[] { s });
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 * 
+	 * @param readOnly
+	 * @param values the values array (must be at least size 1)
+	 */
+	protected TexCoord1f(boolean readOnly, float[] values) {
+		this(readOnly, values[0]);
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 * 
+	 * @param readOnly
+	 * @param texCoord the TexCoordf to copy the values from
+	 */
+	protected TexCoord1f(boolean readOnly, TexCoordf<?> texCoord) {
+		super(readOnly, newArray(texCoord.values, 1));
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 * 
+	 * @param readOnly
+	 */
+	protected TexCoord1f(boolean readOnly) {
+		this(readOnly, 0f);
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 * 
+	 * @param s the S element to use
+	 */
+	public TexCoord1f(float s) {
+		this(false, s);
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 * 
+	 * @param values the values array (must be at least size 1)
+	 */
+	public TexCoord1f(float[] values) {
+		this(false, values);
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 * 
+	 * @param texCoord the TexCoordf to copy the values from
+	 */
+	public TexCoord1f(TexCoordf<?> texCoord) {
+		this(false, texCoord);
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 */
+	public TexCoord1f() {
+		this(false);
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 * 
+	 * @param s the S element to use
+	 */
+	public static final TexCoord1f newReadOnly(float s) {
+		return (new TexCoord1f(true, s));
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 * 
+	 * @param values the values array (must be at least size 1)
+	 */
+	public static final TexCoord1f newReadOnly(float[] values) {
+		return (new TexCoord1f(true, values));
+	}
+
+	/**
+	 * Creates a new TexCoord1f instance.
+	 * 
+	 * @param texCoord the TexCoordf to copy the values from
+	 */
+	public static final TexCoord1f newReadOnly(TexCoordf<?> texCoord) {
+		return (new TexCoord1f(true, texCoord));
+	}
+
+	/**
+	 * Allocates an TexCoord1f instance from the pool.
+	 */
+	public static TexCoord1f fromPool() {
+		return (POOL.get().alloc());
+	}
+
+	/**
+	 * Allocates an TexCoord1f instance from the pool.
+	 */
+	public static TexCoord1f fromPool(float s) {
+		return (POOL.get().alloc(s));
+	}
+
+	/**
+	 * Stores the given TexCoord1f instance in the pool.
+	 * 
+	 * @param o
+	 */
+	public static void toPool(TexCoord1f o) {
+		POOL.get().free(o);
+	}
 }

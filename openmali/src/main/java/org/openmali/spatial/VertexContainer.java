@@ -41,24 +41,23 @@ import org.openmali.vecmath2.Tuple3f;
  * @author David Yazel
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface VertexContainer
-{
-    /**
-     * @return the number of vertices in this object. This could be the
-     * number of vertices which form a convex hull or it could be the
-     * the total number of vertices in the object. If the object is a triangle then
-     * this would return a count of 3.
-     */
-    public int getVertexCount();
-    
-    /**
-     * This allows the spatial container to have access to all the vertices
-     * in the object. This allows for the computation of bounding boxes which
-     * completely enclose the bounding box. The vertices need to be returned in
-     * world coordinates, not local coordinates.
-     *
-     * @param i
-     * @param coord
-     */
-    public boolean getVertex( int i, Tuple3f coord );
+public interface VertexContainer {
+	/**
+	 * @return the number of vertices in this object. This could be the
+	 * number of vertices which form a convex hull or it could be the
+	 * the total number of vertices in the object. If the object is a triangle then
+	 * this would return a count of 3.
+	 */
+	public int getVertexCount();
+
+	/**
+	 * This allows the spatial container to have access to all the vertices
+	 * in the object. This allows for the computation of bounding boxes which
+	 * completely enclose the bounding box. The vertices need to be returned in
+	 * world coordinates, not local coordinates.
+	 *
+	 * @param i
+	 * @param coord
+	 */
+	public boolean getVertex(int i, Tuple3f coord);
 }

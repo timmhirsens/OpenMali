@@ -55,244 +55,214 @@ import org.openmali.vecmath2.Vector4f;
  * @author David Yazel
  * @author Marvin Froehlich (aka Qudus)
  */
-public class BoundingPolytope extends ConvexHull implements Bounds
-{
-    /**
-     * {@inheritDoc}
-     */
-    public final BoundsType getType()
-    {
-        return ( BoundsType.POLYTOPE );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public boolean intersects( Point3f rayOrigin, Vector3f rayDirection, Tuple3f intersection )
-    {
-        return ( IntersectionFactory.convexHullIntersectsRay( this, rayOrigin, rayDirection, intersection ) );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public boolean intersects( Ray3f ray, Tuple3f intersection )
-    {
-        return ( intersects( ray.getOrigin(), ray.getDirection(), intersection ) );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public boolean intersects( Point3f rayOrigin, Vector3f rayDirection )
-    {
-        return ( intersects( rayOrigin, rayDirection, null ) );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public boolean intersects( Ray3f ray )
-    {
-        return ( intersects( ray.getOrigin(), ray.getDirection() ) );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public boolean intersects( Bounds bo )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public boolean intersects( Bounds[] bos )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * Computes a new BoundingPolytope that bounds the volume
-     * created by the intersection of this BoundingPolytope
-     * with another Bounds object
-     * 
-     * @param bo
-     */
-    public BoundingPolytope intersectNew( Bounds bo )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * compute a new BoundingPolytope that bounds the volume
-     * created by the intersection of this BoundingPolytope
-     * with an array of Bounds objects
-     * 
-     * @param bos
-     */
-    public BoundingPolytope intersectNew( Bounds[] bos )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public Bounds closestIntersection( Bounds[] boundsObjects )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void transform( Bounds bounds, Matrix4f trans )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void transform( Matrix4f trans )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * @param planes
-     */
-    private static Plane[] convertToPlanes( Vector4f[] planes )
-    {
-        Plane[] pl = new Plane[ planes.length ];
-        for ( int i =0; i < planes.length; i++ )
-        {
-            pl[ i ] = new Plane( planes[ i ].getX(), planes[ i ].getY(), planes[ i ].getZ(), planes[ i ].getW() );
-        }
-        
-        return ( pl );
-    }
-    
-    /**
-     * Sets the bounding planes of this BoundingPolytope.
-     */
-    public void setPlanes( Vector4f[] planes )
-    {
-        slabs = convertToPlanes( planes );
-    }
-    
-    /**
-     * Gets the bounding planes of this BoundingPolytope.
-     */
-    public void getPlanes( Vector4f[] into )
-    {
-        for ( int i = 0; i < slabs.length; i++ )
-        {
-            into[ i ].set( slabs[ i ].getNormal() );
-            into[ i ].setW( slabs[ i ].getD() );
-        }
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void set( Box boundsObject )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void set( Sphere boundsObject )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void set( Bounds[] bounds )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void set( Bounds boundsObject )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void compute( VertexContainer source )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void compute( List<Tuple3f> coords )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    public void compute( Tuple3f[] coords )
-    {
-        throw new UnsupportedFunction();
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public String toString()
-    {
-        return ( super.toString() );
-    }
-    
-    /**
-     * Constructs a new BoundingPolytope object.
-     */
-    public BoundingPolytope()
-    {
-        super( null );
-    }
-    
-    /**
-     * Constructs a new BoundingPolytope object.
-     */
-    public BoundingPolytope( Vector4f[] planes )
-    {
-        super( convertToPlanes( planes ) ); 
-    }
-    
-    /**
-     * Constructs a new BoundingPolytope object.
-     */
-    public BoundingPolytope( Bounds bo )
-    {
-        this();
-        
-        set( bo );
-    }
-    
-    /**
-     * Constructs a new BoundingPolytope object.
-     */
-    public BoundingPolytope( Bounds[] bos )
-    {
-        this();
-        
-        set( bos );
-    }
+public class BoundingPolytope extends ConvexHull implements Bounds {
+	/**
+	 * {@inheritDoc}
+	 */
+	public final BoundsType getType() {
+		return (BoundsType.POLYTOPE);
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean intersects(Point3f rayOrigin, Vector3f rayDirection, Tuple3f intersection) {
+		return (IntersectionFactory.convexHullIntersectsRay(this, rayOrigin, rayDirection, intersection));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean intersects(Ray3f ray, Tuple3f intersection) {
+		return (intersects(ray.getOrigin(), ray.getDirection(), intersection));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean intersects(Point3f rayOrigin, Vector3f rayDirection) {
+		return (intersects(rayOrigin, rayDirection, null));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean intersects(Ray3f ray) {
+		return (intersects(ray.getOrigin(), ray.getDirection()));
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean intersects(Bounds bo) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public boolean intersects(Bounds[] bos) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * Computes a new BoundingPolytope that bounds the volume
+	 * created by the intersection of this BoundingPolytope
+	 * with another Bounds object
+	 * 
+	 * @param bo
+	 */
+	public BoundingPolytope intersectNew(Bounds bo) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * compute a new BoundingPolytope that bounds the volume
+	 * created by the intersection of this BoundingPolytope
+	 * with an array of Bounds objects
+	 * 
+	 * @param bos
+	 */
+	public BoundingPolytope intersectNew(Bounds[] bos) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public Bounds closestIntersection(Bounds[] boundsObjects) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void transform(Bounds bounds, Matrix4f trans) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void transform(Matrix4f trans) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * @param planes
+	 */
+	private static Plane[] convertToPlanes(Vector4f[] planes) {
+		Plane[] pl = new Plane[planes.length];
+		for (int i = 0; i < planes.length; i++) {
+			pl[i] = new Plane(planes[i].getX(), planes[i].getY(), planes[i].getZ(), planes[i].getW());
+		}
+
+		return (pl);
+	}
+
+	/**
+	 * Sets the bounding planes of this BoundingPolytope.
+	 */
+	public void setPlanes(Vector4f[] planes) {
+		slabs = convertToPlanes(planes);
+	}
+
+	/**
+	 * Gets the bounding planes of this BoundingPolytope.
+	 */
+	public void getPlanes(Vector4f[] into) {
+		for (int i = 0; i < slabs.length; i++) {
+			into[i].set(slabs[i].getNormal());
+			into[i].setW(slabs[i].getD());
+		}
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void set(Box boundsObject) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void set(Sphere boundsObject) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void set(Bounds[] bounds) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void set(Bounds boundsObject) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void compute(VertexContainer source) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void compute(List<Tuple3f> coords) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public void compute(Tuple3f[] coords) {
+		throw new UnsupportedFunction();
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public String toString() {
+		return (super.toString());
+	}
+
+	/**
+	 * Constructs a new BoundingPolytope object.
+	 */
+	public BoundingPolytope() {
+		super(null);
+	}
+
+	/**
+	 * Constructs a new BoundingPolytope object.
+	 */
+	public BoundingPolytope(Vector4f[] planes) {
+		super(convertToPlanes(planes));
+	}
+
+	/**
+	 * Constructs a new BoundingPolytope object.
+	 */
+	public BoundingPolytope(Bounds bo) {
+		this();
+
+		set(bo);
+	}
+
+	/**
+	 * Constructs a new BoundingPolytope object.
+	 */
+	public BoundingPolytope(Bounds[] bos) {
+		this();
+
+		set(bos);
+	}
 }

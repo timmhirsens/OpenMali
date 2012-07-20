@@ -41,41 +41,36 @@ import org.openmali.vecmath2.Tuple3i;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Tuple3iPool extends ObjectPool< Tuple3i >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Tuple3i newInstance()
-    {
-        return ( new Tuple3i() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Tuple3i alloc()
-    {
-        Tuple3i o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Tuple3i alloc( int x, int y, int z )
-    {
-        Tuple3i o = super.alloc();
-        
-        o.set( x, y, z );
-        
-        return ( o );
-    }
-    
-    public Tuple3iPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Tuple3iPool extends ObjectPool<Tuple3i> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Tuple3i newInstance() {
+		return (new Tuple3i());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Tuple3i alloc() {
+		Tuple3i o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Tuple3i alloc(int x, int y, int z) {
+		Tuple3i o = super.alloc();
+
+		o.set(x, y, z);
+
+		return (o);
+	}
+
+	public Tuple3iPool(int initialSize) {
+		super(initialSize);
+	}
 }

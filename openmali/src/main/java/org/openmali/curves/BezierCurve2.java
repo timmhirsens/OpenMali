@@ -45,99 +45,87 @@ import org.openmali.vecmath2.Tuple3f;
  * @since 04 sept. 2007
  * <a href="http://en.wikipedia.org/wiki/Bezier_curve">
  */
-public class BezierCurve2
-{
-    private final Point3f[] points;
-    
-    /**
-     * @return the array of base-points for this Bezier Curve.
-     */
-    public final Point3f[] getBasePoints()
-    {
-        return ( points );
-    }
-    
-    /**
-     * @return the n-th base-point for this Bezier Curve.
-     */
-    public final Point3f getBasePoint( int i )
-    {
-        return ( points[ i ] );
-    }
-    
-    /**
-     * @param i with 0 < t < 1
-     * @param p the point output object to write the calculated point on the Bezier Curve to
-     */
-    public final < P extends Tuple3f > P getPoint( float i, P p )
-    {
-        if ( (i < 0) || (i > 1) )
-        {
-            throw new IllegalArgumentException( "i must be in range [0..1]" );
-        }
-        
-        p.setX( FastMath.pow2( 1 - i ) * points[ 0 ].getX() + ( 2 * i * (1 - i) * points[ 1 ].getX() ) + FastMath.pow2( i ) * points[ 2 ].getX() );
-        p.setY( FastMath.pow2( 1 - i ) * points[ 0 ].getY() + ( 2 * i * (1 - i) * points[ 1 ].getY() ) + FastMath.pow2( i ) * points[ 2 ].getY() );
-        p.setZ( FastMath.pow2( 1 - i ) * points[ 0 ].getZ() + ( 2 * i * (1 - i) * points[ 1 ].getZ() ) + FastMath.pow2( i ) * points[ 2 ].getZ() );
-        
-        return ( p );
-    }
-    
-    /**
-     * @param i with 0 < t < 1
-     * @return one point on the Bezier curve
-     */
-    public final Point3f getPoint( float i )
-    {
-        return ( getPoint( i, new Point3f() ) );
-    }
-    
-    /**
-     * @param result result.length Point3fs from the Bezier Curve
-     */
-    public final Tuple3f[] getPoints( Tuple3f[] result )
-    {
-        for ( int i = 0; i < result.length; i++ )
-        {
-            if ( result[ i ] == null )
-                result[ i ] = new Point3f();
-            
-            getPoint( i / (float)( result.length - 1 ), result[ i ] );
-        }
-        
-        return ( result );
-    }
-    
-    /**
-     * @param result result.length Point3fs from the Bezier Curve
-     */
-    public final Point3f[] getPoints( Point3f[] result )
-    {
-        return ( (Point3f[])getPoints( (Tuple3f[])result ) );
-    }
-    
-    /**
-     * @param numPoints
-     * @return numPoints * Point3f  from the Bezier curve
-     */
-    public final Point3f[] getPoints( int numPoints )
-    {
-        return ( getPoints( new Point3f[ numPoints ] ) );
-    }
-    
-    public BezierCurve2( Tuple3f startPoint, Tuple3f midPoint, Tuple3f endPoint )
-    {
-        this.points = new Point3f[ 3 ];
-        
-        points[ 0 ] = new Point3f( startPoint );
-        points[ 1 ] = new Point3f( midPoint );
-        points[ 2 ] = new Point3f( endPoint );
-    }
-    
-    public BezierCurve2( Point3f[] points )
-    {
-        this.points = new Point3f[ 3 ];
-        
-        System.arraycopy( points, 0, this.points, 0, 3 );
-    }
+public class BezierCurve2 {
+	private final Point3f[] points;
+
+	/**
+	 * @return the array of base-points for this Bezier Curve.
+	 */
+	public final Point3f[] getBasePoints() {
+		return (points);
+	}
+
+	/**
+	 * @return the n-th base-point for this Bezier Curve.
+	 */
+	public final Point3f getBasePoint(int i) {
+		return (points[i]);
+	}
+
+	/**
+	 * @param i with 0 < t < 1
+	 * @param p the point output object to write the calculated point on the Bezier Curve to
+	 */
+	public final <P extends Tuple3f> P getPoint(float i, P p) {
+		if ((i < 0) || (i > 1)) {
+			throw new IllegalArgumentException("i must be in range [0..1]");
+		}
+
+		p.setX(FastMath.pow2(1 - i) * points[0].getX() + (2 * i * (1 - i) * points[1].getX()) + FastMath.pow2(i) * points[2].getX());
+		p.setY(FastMath.pow2(1 - i) * points[0].getY() + (2 * i * (1 - i) * points[1].getY()) + FastMath.pow2(i) * points[2].getY());
+		p.setZ(FastMath.pow2(1 - i) * points[0].getZ() + (2 * i * (1 - i) * points[1].getZ()) + FastMath.pow2(i) * points[2].getZ());
+
+		return (p);
+	}
+
+	/**
+	 * @param i with 0 < t < 1
+	 * @return one point on the Bezier curve
+	 */
+	public final Point3f getPoint(float i) {
+		return (getPoint(i, new Point3f()));
+	}
+
+	/**
+	 * @param result result.length Point3fs from the Bezier Curve
+	 */
+	public final Tuple3f[] getPoints(Tuple3f[] result) {
+		for (int i = 0; i < result.length; i++) {
+			if (result[i] == null)
+				result[i] = new Point3f();
+
+			getPoint(i / (float) (result.length - 1), result[i]);
+		}
+
+		return (result);
+	}
+
+	/**
+	 * @param result result.length Point3fs from the Bezier Curve
+	 */
+	public final Point3f[] getPoints(Point3f[] result) {
+		return ((Point3f[]) getPoints((Tuple3f[]) result));
+	}
+
+	/**
+	 * @param numPoints
+	 * @return numPoints * Point3f  from the Bezier curve
+	 */
+	public final Point3f[] getPoints(int numPoints) {
+		return (getPoints(new Point3f[numPoints]));
+	}
+
+	public BezierCurve2(Tuple3f startPoint, Tuple3f midPoint, Tuple3f endPoint) {
+		this.points = new Point3f[3];
+
+		points[0] = new Point3f(startPoint);
+		points[1] = new Point3f(midPoint);
+		points[2] = new Point3f(endPoint);
+	}
+
+	public BezierCurve2(Point3f[] points) {
+		this.points = new Point3f[3];
+
+		System.arraycopy(points, 0, this.points, 0, 3);
+	}
 }

@@ -41,32 +41,28 @@ import org.openmali.vecmath2.Matrix4f;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public class Matrix4fPool extends ObjectPool< Matrix4f >
-{
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    protected Matrix4f newInstance()
-    {
-        return ( new Matrix4f() );
-    }
-    
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Matrix4f alloc()
-    {
-        Matrix4f o = super.alloc();
-        
-        o.setZero();
-        
-        return ( o );
-    }
-    
-    public Matrix4fPool( int initialSize )
-    {
-        super( initialSize );
-    }
+public class Matrix4fPool extends ObjectPool<Matrix4f> {
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected Matrix4f newInstance() {
+		return (new Matrix4f());
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public Matrix4f alloc() {
+		Matrix4f o = super.alloc();
+
+		o.setZero();
+
+		return (o);
+	}
+
+	public Matrix4fPool(int initialSize) {
+		super(initialSize);
+	}
 }

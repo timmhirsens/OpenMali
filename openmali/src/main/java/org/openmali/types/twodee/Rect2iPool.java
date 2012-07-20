@@ -40,16 +40,13 @@ import org.openmali.pooling.ObjectPool;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-class Rect2iPool extends ObjectPool< Rect2i >
-{
-    @Override
-    protected final Rect2i newInstance()
-    {
-        return ( new Rect2i() );
-    }
-    
-    public Rect2iPool()
-    {
-        super( 64 );
-    }
+class Rect2iPool extends ObjectPool<Rect2i> {
+	@Override
+	protected final Rect2i newInstance() {
+		return (new Rect2i());
+	}
+
+	public Rect2iPool() {
+		super(64);
+	}
 }

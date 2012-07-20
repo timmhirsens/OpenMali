@@ -41,16 +41,15 @@ import org.openmali.types.twodee.Positioned2i;
  * 
  * @author Marvin Froehlich (aka Qudus)
  */
-public interface RepositionListener2i
-{
-    /**
-     * This event is fired when a Sized2i object was recently resized.
-     * 
-     * @param object the object that was just repositioned
-     * @param oldLeft the left position of the object before it was repositioned
-     * @param oldTop the top position of the object before it was repositioned
-     * @param newLeft the left position of the object now
-     * @param newTop the top position of the object now
-     */
-    public void onObjectRepositioned( Positioned2i object, int oldLeft, int oldTop, int newLeft, int newTop );
+public interface RepositionListener2i {
+	/**
+	 * This event is fired when a Sized2i object was recently resized.
+	 * 
+	 * @param object the object that was just repositioned
+	 * @param oldLeft the left position of the object before it was repositioned
+	 * @param oldTop the top position of the object before it was repositioned
+	 * @param newLeft the left position of the object now
+	 * @param newTop the top position of the object now
+	 */
+	public void onObjectRepositioned(Positioned2i object, int oldLeft, int oldTop, int newLeft, int newTop);
 }
